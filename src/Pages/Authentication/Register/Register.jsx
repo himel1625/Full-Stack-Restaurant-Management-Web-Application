@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleLogo from '../../../assets/Google.png';
 import useAuth from '../../../Hooks/useAuth';
+
 const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -44,7 +45,6 @@ const Register = () => {
         photoURL: photo,
         displayName: name,
       });
-
       navigate(from, { replace: true });
       toast.success('Register Successful');
       e.target.reset();
