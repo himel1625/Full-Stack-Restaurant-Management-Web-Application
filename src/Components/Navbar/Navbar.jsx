@@ -52,18 +52,20 @@ const Navbar = () => {
             </li>
 
             <>
-              <li>
-                <NavLink
-                  to='/Login'
-                  className={({ isActive }) =>
-                    `font-bold ${
-                      isActive ? 'text-blue-300' : 'hover:text-blue-600'
-                    }`
-                  }
-                >
-                  Login
-                </NavLink>
-              </li>
+              {!user && (
+                <li>
+                  <NavLink
+                    to='/Login'
+                    className={({ isActive }) =>
+                      `font-bold ${
+                        isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                      }`
+                    }
+                  >
+                    Login
+                  </NavLink>
+                </li>
+              )}
             </>
           </ul>
 

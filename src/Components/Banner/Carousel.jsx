@@ -5,7 +5,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-
 import food1 from '../../assets/food-img/food1.jpg';
 import food2 from '../../assets/food-img/food2.avif';
 import food3 from '../../assets/food-img/food3.jpg';
@@ -25,7 +24,7 @@ function Slide({ image }) {
   );
 }
 
-export default function Carousel() {
+const Carousel = () => {
   return (
     <div className='container px-6 py-10 mx-auto'>
       <Swiper
@@ -64,4 +63,5 @@ export default function Carousel() {
       </Swiper>
     </div>
   );
-}
+};
+export default Carousel;
