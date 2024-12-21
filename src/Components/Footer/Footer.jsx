@@ -10,7 +10,7 @@ const Footer = () => {
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12'>
             {/* DineMaster Section */}
             <div className='footer-section text-black dark:text-white'>
-              <h4 className='text-4xl font-extrabold text-yellow-500 mb-6'>
+              <h4 className='text-4xl font-extrabold text-blue-500 mb-6'>
                 <strong>DineMaster</strong>
               </h4>
               <p className='text-sm mb-4'>
@@ -22,19 +22,19 @@ const Footer = () => {
               <div className='flex space-x-6 mt-6 text-black dark:text-white'>
                 <a
                   href='#'
-                  className='text-gray-400 hover:text-yellow-500 transition duration-300'
+                  className='text-gray-400 hover:text-blue-500 transition duration-300'
                 >
                   <i className='fab fa-facebook'></i> <strong>Facebook</strong>
                 </a>
                 <a
                   href='#'
-                  className='text-gray-400 hover:text-yellow-500 transition duration-300'
+                  className='text-gray-400 hover:text-blue-500 transition duration-300'
                 >
                   <i className='fab fa-twitter'></i> <strong>Twitter</strong>
                 </a>
                 <a
                   href='#'
-                  className='text-gray-400 hover:text-yellow-500 transition duration-300'
+                  className='text-gray-400 hover:text-blue-500 transition duration-300'
                 >
                   <i className='fab fa-instagram'></i>{' '}
                   <strong>Instagram</strong>
@@ -48,18 +48,11 @@ const Footer = () => {
                 <strong>Quick Links</strong>
               </h4>
               <ul className='space-y-3 text-black dark:text-white'>
-                {['Home', 'Menu', 'About Us', 'Contact', 'Reservations'].map(
-                  item => (
-                    <li key={item}>
-                      <a
-                        href='#'
-                        className='text-sm text-gray-400 hover:text-yellow-500 transition duration-300'
-                      >
-                        <strong>{item}</strong>
-                      </a>
-                    </li>
-                  ),
-                )}
+                <li>Home</li>
+                <li>Menu</li>
+                <li>About Us</li>
+                <li>Contact</li>
+                <li>Reservations</li>
               </ul>
             </div>
 
@@ -72,7 +65,7 @@ const Footer = () => {
                 <strong>Email:</strong>{' '}
                 <a
                   href='mailto:support@dinemaster.com'
-                  className='text-gray-400 hover:text-yellow-500 transition duration-300'
+                  className='text-gray-400 hover:text-blue-500 transition duration-300'
                 >
                   <strong>support@dinemaster.com</strong>
                 </a>
@@ -81,7 +74,7 @@ const Footer = () => {
                 <strong>Phone:</strong>{' '}
                 <a
                   href='tel:+1234567890'
-                  className='text-gray-400 hover:text-yellow-500 transition duration-300'
+                  className='text-gray-400 hover:text-blue-500 transition duration-300'
                 >
                   <strong>+1 234 567 890</strong>
                 </a>
@@ -109,9 +102,9 @@ const Footer = () => {
                 <input
                   type='email'
                   placeholder='Your Email'
-                  className='p-3 w-full rounded-lg text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-300'
+                  className='p-3 w-full rounded-lg text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300'
                 />
-                <button className='bg-yellow-500 text-white py-3 px-6 rounded-lg hover:bg-yellow-600 transition-all duration-300'>
+                <button className='bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-all duration-300'>
                   <strong>Subscribe</strong>
                 </button>
               </div>

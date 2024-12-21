@@ -30,17 +30,6 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        <NavLink
-          to='/login'
-          className={({ isActive }) =>
-            `font-bold text-white lg:hidden ${
-              isActive ? 'text-blue-300' : 'hover:text-blue-600'
-            }`
-          }
-        >
-          Login
-        </NavLink>
-
         <div className='flex-none'>
           <ul className='gap-6 px-1 font-bold dark:text-white hidden md:flex'>
             <li>
@@ -59,14 +48,14 @@ const Navbar = () => {
             <>
               <li>
                 <NavLink
-                  to='/'
+                  to='/Login'
                   className={({ isActive }) =>
                     `font-bold ${
                       isActive ? 'text-blue-300' : 'hover:text-blue-600'
                     }`
                   }
                 >
-                  all
+                  Login
                 </NavLink>
               </li>
             </>
