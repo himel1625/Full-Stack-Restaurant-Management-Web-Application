@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import GoogleLogo from '../../../assets/Google.png';
 import useAuth from '../../../Hooks/useAuth';
 const Login = () => {
-  const { setUser, signInWithGoogle } = useAuth();
+  const { setUser, signInWithGoogle, Login } = useAuth();
 
   const handelGoogleLogin = async () => {
     try {
@@ -16,13 +16,18 @@ const Login = () => {
       toast.error(err?.message);
     }
   };
-
-  const handelSubmit = e => {
+  const handelSubmit = async e => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-
-    e.target.reset();
+    try {
+      await Login(email, password);
+      toast.success('Login Successful');
+      e.target.reset();
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
   };
   return (
     <>
@@ -48,7 +53,7 @@ const Login = () => {
                 type='email'
                 name='email'
                 id='username'
-                placeholder='Steven job'
+                placeholder='user....email'
                 className='input input-bordered w-full dark:bg-black'
               />
             </div>

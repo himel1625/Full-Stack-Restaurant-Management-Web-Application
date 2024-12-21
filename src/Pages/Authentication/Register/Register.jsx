@@ -36,13 +36,12 @@ const Register = () => {
       toast.error(err?.message);
     }
   };
-
   return (
     <>
       <Helmet>
         <title>DineMaster | Register</title>
       </Helmet>
-      <div className='flex items-center justify-center min-h-screen  px-4 dark:text-white'>
+      <div className='flex items-center justify-center min-h-screen  px-4 dark:text-white mt-10 md:mt-2'>
         <div className='border border-gray-200 shadow-lg rounded-xl w-full sm:w-11/12 md:w-2/3 lg:w-1/3 dark:bg-black '>
           <div className='mt-6 mb-2'>
             <p className='text-center font-bold text-2xl dark:text-white'>
