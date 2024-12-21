@@ -13,8 +13,8 @@ const AddFood = () => {
   };
 
   return (
-    <div className='container mx-auto p-6 text-white'>
-      <h1 className='text-3xl font-semibold text-center mb-6'>
+    <div className='container mx-auto p-6 text-black dark:text-white'>
+      <h1 className='text-3xl font-semibold text-center mb-3'>
         Add New Food Item
       </h1>
       <form
