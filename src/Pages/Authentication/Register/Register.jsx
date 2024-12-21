@@ -7,6 +7,16 @@ import useAuth from '../../../Hooks/useAuth';
 const Register = () => {
   const { setUser, createUser, updateUserProfile, signInWithGoogle } =
     useAuth();
+
+  const handelGoogleLogin = async () => {
+    try {
+      await signInWithGoogle();
+      toast.success('Register Successful');
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
+  };
   const handelRegisterSubmit = async e => {
     e.preventDefault();
     const from = new FormData(e.target);
@@ -14,7 +24,15 @@ const Register = () => {
     const photo = from.get('Url');
     const email = from.get('email');
     const password = from.get('password');
-
+    if (password.length < 6) {
+      toast.error('❌Password must contain at least 6 character ');
+    }
+    if (!/[A-Z]/.test(password)) {
+      toast.error('❌Password must in one uppercase letter ');
+    }
+    if (!/[a-z]/.test(password)) {
+      toast.error('❌Password must in one lowercase letter ');
+    }
     try {
       await createUser(email, password);
       await updateUserProfile(name, photo);
@@ -27,15 +45,6 @@ const Register = () => {
     }
   };
 
-  const handelGoogleLogin = async () => {
-    try {
-      await signInWithGoogle();
-      toast.success('Register Successful');
-    } catch (err) {
-      console.log(err);
-      toast.error(err?.message);
-    }
-  };
   return (
     <>
       <Helmet>

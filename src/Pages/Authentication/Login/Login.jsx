@@ -20,6 +20,16 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    if (password.length < 6) {
+      toast.error('❌Password must contain at least 6 character ');
+    }
+    if (!/[A-Z]/.test(password)) {
+      toast.error('❌Password must in one uppercase letter ');
+    }
+    if (!/[a-z]/.test(password)) {
+      toast.error('❌Password must in one lowercase letter ');
+    }
+
     try {
       await Login(email, password);
       toast.success('Login Successful');
