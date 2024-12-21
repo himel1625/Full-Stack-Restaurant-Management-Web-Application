@@ -1,13 +1,27 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import GoogleLogo from '../../../assets/Google.png';
+import useAuth from '../../../Hooks/useAuth';
 const Login = () => {
+  const { setUser, signInWithGoogle } = useAuth();
+
+  const handelGoogleLogin = async () => {
+    try {
+      await signInWithGoogle();
+      toast.success('Signin Successful');
+    } catch (err) {
+      console.log(err);
+      toast.error(err);
+    }
+  };
+
   const handelSubmit = e => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+
     e.target.reset();
   };
   return (
@@ -80,7 +94,10 @@ const Login = () => {
               </div>
               <hr />
               <div className='flex items-center justify-center py-4'>
-                <button className='font-bold ml-2 text-sm sm:text-base flex '>
+                <button
+                  onClick={handelGoogleLogin}
+                  className='font-bold ml-2 text-sm sm:text-base flex '
+                >
                   <img
                     className='w-6 h-6 mx-3'
                     src={GoogleLogo}

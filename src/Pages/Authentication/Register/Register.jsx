@@ -2,13 +2,16 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import GoogleLogo from '../../../assets/Google.png';
+import useAuth from '../../../Hooks/useAuth';
 const Register = () => {
+  const { createUser } = useAuth();
+
   const handelRegisterSubmit = e => {
     e.preventDefault();
     const from = new FormData(e.target);
     const email = from.get('email');
     const password = from.get('password');
-    console.log(email, password);
+    createUser
   };
 
   return (
