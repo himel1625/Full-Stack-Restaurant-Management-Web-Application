@@ -13,7 +13,7 @@ const Login = () => {
       toast.success('Signin Successful');
     } catch (err) {
       console.log(err);
-      toast.error(err);
+      toast.error(err?.message);
     }
   };
 

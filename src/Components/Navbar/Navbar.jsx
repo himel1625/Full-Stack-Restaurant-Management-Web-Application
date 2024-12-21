@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 const Navbar = () => {
+  const { user, logOut } = useAuth();
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
@@ -19,6 +21,9 @@ const Navbar = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
+  const handleLogout = () => {
+    logOut();
+  };
   return (
     <div className='sticky top-0 z-10'>
       <div className='navbar bg-base-100 dark:bg-DGray shadow-sm px-8 mx-auto'>
@@ -67,13 +72,24 @@ const Navbar = () => {
               role='button'
               className='btn btn-ghost btn-circle avatar'
             >
-              {/* <div title={user?.displayName} className='w-10 rounded-full'>
-                <img
-                  referrerPolicy='no-referrer'
-                  alt='User Profile Photo'
-                  src={user?.photoURL}
-                />
-              </div> */}
+              {user ? (
+                <div title={user?.displayName} className='w-10 rounded-full'>
+                  <img
+                    referrerPolicy='no-referrer'
+                    alt='User Profile Photo'
+                    src={
+                      user?.photoURL ||
+                      'https://cdn-icons-png.flaticon.com/512/8847/8847419.png'
+                    }
+                  />
+                </div>
+              ) : (
+                <div className='font-bold text-white pt-3'>
+                  <NavLink to='/Login'>
+                    <button onClick={handleLogout}></button>
+                  </NavLink>
+                </div>
+              )}
             </div>
             <ul
               tabIndex={0}
@@ -101,7 +117,10 @@ const Navbar = () => {
                 </button>
               </li>
               <li className='mt-2'>
-                <button className='bg-gray-200 block text-center dark:bg-gray-700'>
+                <button
+                  onClick={handleLogout}
+                  className='bg-gray-200 block text-center dark:bg-gray-700'
+                >
                   Logout
                 </button>
               </li>

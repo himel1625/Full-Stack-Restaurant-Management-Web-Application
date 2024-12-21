@@ -1,17 +1,40 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import GoogleLogo from '../../../assets/Google.png';
 import useAuth from '../../../Hooks/useAuth';
 const Register = () => {
-  const { createUser } = useAuth();
-
-  const handelRegisterSubmit = e => {
+  const { setUser, createUser, updateUserProfile, signInWithGoogle } =
+    useAuth();
+  const handelRegisterSubmit = async e => {
     e.preventDefault();
     const from = new FormData(e.target);
+    const name = from.get('FullName');
+    const photo = from.get('Url');
     const email = from.get('email');
     const password = from.get('password');
-    createUser
+
+    try {
+      await createUser(email, password);
+      await updateUserProfile(name, photo);
+      setUser({ photoURL: photo, displayName: name });
+      toast.success('Register Successful');
+      e.target.reset();
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
+  };
+
+  const handelGoogleLogin = async () => {
+    try {
+      await signInWithGoogle();
+      toast.success('Register Successful');
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
   };
 
   return (
@@ -37,6 +60,7 @@ const Register = () => {
               <input
                 type='text'
                 id='FullName'
+                name='FullName'
                 placeholder='Enter your Full Name *'
                 className='input input-bordered w-full focus:outline-none focus:ring focus:ring-blue-300 dark:bg-black '
               />
@@ -44,18 +68,18 @@ const Register = () => {
             <div>
               <label
                 className='block text-sm font-medium text-gray-600'
-                htmlFor='username'
+                htmlFor='email'
               >
-                Username
+                photo Url
               </label>
               <input
-                type='text'
-                id='username'
-                placeholder='Enter your username'
+                type='url'
+                id='Url'
+                name='Url'
+                placeholder='Enter your email'
                 className='input input-bordered w-full focus:outline-none focus:ring focus:ring-blue-300 dark:bg-black '
               />
             </div>
-
             <div>
               <label
                 className='block text-sm font-medium text-gray-600'
@@ -88,21 +112,6 @@ const Register = () => {
               />
             </div>
 
-            <div>
-              <label
-                className='block text-sm font-medium text-gray-600'
-                htmlFor='confirm-password'
-              >
-                Confirm Password
-              </label>
-              <input
-                type='password'
-                id='confirm-password'
-                placeholder='Re-enter your password'
-                className='input input-bordered w-full focus:outline-none focus:ring focus:ring-blue-300 dark:bg-black '
-              />
-            </div>
-
             <div className='flex justify-between items-center'>
               <label className='flex items-center text-sm text-gray-600'>
                 <input
@@ -127,10 +136,14 @@ const Register = () => {
             <div className='divider font-bold pt-2 px-4 '>Or continue with</div>
             <hr />
             <div className='flex items-center justify-center py-4 '>
-              <img className='w-6 h-6' src={GoogleLogo} alt='Google Logo' />
-              <p className='ml-2 text-sm sm:text-base font-medium text-gray-700'>
+              <button
+                onClick={handelGoogleLogin}
+                c
+                className='font-bold ml-2 text-sm sm:text-base flex '
+              >
+                <img className='w-6 h-6' src={GoogleLogo} alt='Google Logo' />
                 Sign in with Google
-              </p>
+              </button>
             </div>
             <hr />
           </div>
