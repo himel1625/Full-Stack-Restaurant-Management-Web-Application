@@ -5,8 +5,9 @@ import Navbar from '../Components/Navbar/Navbar';
 
 const Layouts = () => {
   return (
-    <div className='font-Lato '>
+    <div className='font-Lato'>
       <Navbar />
+
       <div className='container mx-auto md:mx-auto scroll-smooth    '>
         <Outlet />
       </div>
