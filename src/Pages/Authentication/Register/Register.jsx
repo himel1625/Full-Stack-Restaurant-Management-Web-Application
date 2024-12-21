@@ -1,10 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleLogo from '../../../assets/Google.png';
 import useAuth from '../../../Hooks/useAuth';
 const Register = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || '/';
   const { setUser, createUser, updateUserProfile, signInWithGoogle } =
     useAuth();
 
@@ -12,6 +15,7 @@ const Register = () => {
     try {
       await signInWithGoogle();
       toast.success('Register Successful');
+      navigate(from, { replace: true });
     } catch (err) {
       console.log(err);
       toast.error(err?.message);
@@ -36,7 +40,12 @@ const Register = () => {
     try {
       await createUser(email, password);
       await updateUserProfile(name, photo);
-      setUser({ photoURL: photo, displayName: name });
+      setUser({
+        photoURL: photo,
+        displayName: name,
+      });
+
+      navigate(from, { replace: true });
       toast.success('Register Successful');
       e.target.reset();
     } catch (err) {
@@ -124,7 +133,6 @@ const Register = () => {
               <label className='flex items-center text-sm text-gray-600'>
                 <input
                   type='checkbox'
-                  defaultChecked
                   className='checkbox checkbox-info mr-2'
                 />
                 Remember me

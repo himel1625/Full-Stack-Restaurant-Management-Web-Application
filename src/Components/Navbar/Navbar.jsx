@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 const Navbar = () => {
@@ -20,9 +21,9 @@ const Navbar = () => {
   const toggleTheme = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
-
   const handleLogout = () => {
     logOut();
+    toast.success('Logout SuccessFull ');
   };
   return (
     <div className='sticky top-0 z-10'>

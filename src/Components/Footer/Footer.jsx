@@ -114,10 +114,11 @@ const Footer = () => {
           <div className='mt-12 text-center text-sm text-gray-400'>
             <hr className='mb-10' />
             <p>
-              &copy; 2024 <strong>DineMaster</strong>. All rights reserved.
+              &copy; {new Date().getFullYear()} <strong>DineMaster</strong>. All
+              rights reserved.
             </p>
             <p className='mt-2'>
-              <strong>Designed by JH Group. | Powered by JH Group.</strong>
+              <strong>Designed by (Himel) | Powered by JH Group.</strong>
             </p>
           </div>
         </div>

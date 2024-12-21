@@ -1,44 +1,60 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import GoogleLogo from '../../../assets/Google.png';
 import useAuth from '../../../Hooks/useAuth';
 const Login = () => {
-  const { setUser, signInWithGoogle, Login } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || '/';
+  const { signInWithGoogle, Login } = useAuth();
 
   const handelGoogleLogin = async () => {
     try {
       await signInWithGoogle();
       toast.success('Signin Successful');
+      navigate(from, { replace: true });
     } catch (err) {
-      console.log(err);
+      console.error(err);
       toast.error(err?.message);
     }
   };
+
   const handelSubmit = async e => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+    const formData = new FormData(e.target);
+    const email = formData.get('email');
+    const password = formData.get('password');
+
+    if (!password) {
+      toast.success('please wait');
+      return;
+    }
     if (password.length < 6) {
-      toast.error('❌Password must contain at least 6 character ');
+      toast.error('❌ Password must contain at least 6 characters');
+      return;
     }
     if (!/[A-Z]/.test(password)) {
-      toast.error('❌Password must in one uppercase letter ');
+      toast.error('❌ Password must include at least one uppercase letter');
+      return;
     }
     if (!/[a-z]/.test(password)) {
-      toast.error('❌Password must in one lowercase letter ');
+      toast.error('❌ Password must include at least one lowercase letter');
+      return;
     }
 
     try {
       await Login(email, password);
       toast.success('Login Successful');
+      navigate(from, { replace: true });
       e.target.reset();
     } catch (err) {
-      console.log(err);
+      console.error(err);
       toast.error(err?.message);
     }
   };
+
   return (
     <>
       <Helmet>
@@ -48,7 +64,7 @@ const Login = () => {
         <div className='border border-gray-200 shadow-md dark:bg-black rounded-xl mx-3 w-full sm:w-11/12 md:w-2/3 lg:w-1/3'>
           <div className='mt-6 mb-2'>
             <p className='text-center font-bold text-xl dark:text-white'>
-              welcome to DineMaster
+              Welcome to DineMaster
             </p>
           </div>
           <form onSubmit={handelSubmit} className='dark:text-white'>
@@ -80,7 +96,7 @@ const Login = () => {
                 name='password'
                 id='password'
                 placeholder='***********'
-                className='input input-bordered w-full  dark:bg-black'
+                className='input input-bordered w-full dark:bg-black'
               />
             </div>
 
