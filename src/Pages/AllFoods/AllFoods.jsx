@@ -6,7 +6,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 const AllFoods = () => {
   const axiosSecure = useAxiosSecure();
   const [search, setSearch] = useState('');
-  const [foodData, setFoodData] = useState([]); // Initialize as an empty array
+  const [foodData, setFoodData] = useState([]);
 
   const handleSearch = () => {
     console.log(search);

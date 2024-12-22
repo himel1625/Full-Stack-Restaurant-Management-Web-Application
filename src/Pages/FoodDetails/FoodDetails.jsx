@@ -42,22 +42,28 @@ const FoodDetails = () => {
               <strong className='font-semibold'>Description:</strong>{' '}
               {foodData.description || 'N/A'}
             </p>
-            <p className='text-lg text-gray-700 dark:text-gray-300'>
-              <strong className='font-semibold'>Category:</strong>{' '}
-              {foodData.foodCategory || 'N/A'}
-            </p>
-            <p className='text-lg text-gray-700 dark:text-gray-300'>
-              <strong className='font-semibold'>Origin:</strong>{' '}
-              {foodData.foodOrigin || 'N/A'}
-            </p>
-            <p className='text-lg text-gray-700 dark:text-gray-300'>
-              <strong className='font-semibold'>Price:</strong> $
-              {foodData.price || 'N/A'}
-            </p>
-            <p className='text-lg text-gray-700 dark:text-gray-300'>
-              <strong className='font-semibold'>Quantity:</strong>{' '}
-              {foodData.quantity || 'N/A'}
-            </p>
+            <div className='md:flex items-center md:justify-between'>
+              <div>
+                <p className='text-lg text-gray-700 dark:text-gray-300'>
+                  <strong className='font-semibold'>Category:</strong>{' '}
+                  {foodData.foodCategory || 'N/A'}
+                </p>
+                <p className='text-lg text-gray-700 dark:text-gray-300'>
+                  <strong className='font-semibold'>Origin:</strong>{' '}
+                  {foodData.foodOrigin || 'N/A'}
+                </p>
+              </div>
+              <div>
+                <p className='text-lg text-gray-700 dark:text-gray-300'>
+                  <strong className='font-semibold'>Price:</strong> $
+                  {foodData.price || 'N/A'}
+                </p>
+                <p className='text-lg text-gray-700 dark:text-gray-300'>
+                  <strong className='font-semibold'>Quantity:</strong>{' '}
+                  {foodData.quantity || 'N/A'}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
