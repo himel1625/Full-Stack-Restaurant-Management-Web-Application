@@ -1,6 +1,7 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Map = ({ locations = [] }) => {
   useEffect(() => {
@@ -9,7 +10,6 @@ const Map = ({ locations = [] }) => {
       zoom: 15,
       zoomControl: false,
     });
-
     L.control
       .zoom({
         position: 'topright',
@@ -31,22 +31,26 @@ const Map = ({ locations = [] }) => {
         marker.bindPopup(popup);
       });
     }
-
     return () => {
       map.remove();
     };
   }, [locations]);
 
   return (
-    <div className='flex flex-col items-center justify-center mt-6'>
-      <p className='text-gray-800 dark:text-blue-500 font-bold text-3xl mb-2'>
-        Our Restaurant Location
-      </p>
-      <div
-        id='map'
-        className='h-[700px] w-[100%] border-4 border-blue-500 rounded-lg shadow-lg'
-      ></div>
-    </div>
+    <>
+      <Helmet>
+        <title>DineMaster | Our Location</title>
+      </Helmet>
+      <div className='flex flex-col items-center justify-center mt-6 mx-4'>
+        <p className='text-gray-800 dark:text-blue-500 font-bold text-3xl mb-2'>
+          Our Restaurant Location
+        </p>
+        <div
+          id='map'
+          className='h-[750px] w-[100%]   border-4 border-blue-400 shadow-lg rounded-lg '
+        ></div>
+      </div>
+    </>
   );
 };
 

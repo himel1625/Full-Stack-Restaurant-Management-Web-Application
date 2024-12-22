@@ -8,6 +8,8 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { createContext, useEffect, useState } from 'react';
+
+import axios from 'axios';
 import auth from '../Pages/Authentication/auth/auth';
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
@@ -28,6 +30,12 @@ const AuthProvider = ({ children }) => {
   };
   const logOut = async () => {
     setLoading(true);
+    const { data } = await axios.post(
+      `${import.meta.env.VITE_API_URL}/logout`,
+      {},
+      { withCredentials: true },
+    );
+    console.log(data);
     return signOut(auth);
   };
   const updateUserProfile = (name, photo) => {
@@ -44,7 +52,18 @@ const AuthProvider = ({ children }) => {
   };
   // onAuthStateChange
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+    const unsubscribe = onAuthStateChanged(auth, async currentUser => {
+      if (currentUser?.email) {
+        setUser(currentUser);
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_API_URL}/jwt`,
+          {
+            email: currentUser?.email,
+          },
+          { withCredentials: true },
+        );
+        console.log(data);
+      }
       setUser(currentUser);
       setLoading(false);
     });
