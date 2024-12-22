@@ -26,7 +26,7 @@ const Hero = () => {
           Choose your good quality food
         </p>
       </div>
-      <div className='grid grid-flow-col-1 md:grid-cols-2 lg:grid-cols-4 gap-3'>
+      <div className='grid items-center justify-center grid-flow-col-1 md:grid-cols-2 lg:grid-cols-4 gap-3'>
         {foodData.map(food => (
           <Card food={food} key={food._id} />
         ))}

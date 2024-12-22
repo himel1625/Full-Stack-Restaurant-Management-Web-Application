@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import Card from '../../Components/Card/Card';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const AllFoods = () => {
   const axiosSecure = useAxiosSecure();
   const [search, setSearch] = useState('');
+  const [foodData, setFoodData] = useState([]); // Initialize as an empty array
 
   const handleSearch = () => {
     console.log(search);
     setSearch('');
   };
 
-  useEffect(() => {
+  const handleData = async () => {
     try {
-      axiosSecure.get('/food');
+      const { data } = await axiosSecure.get('/food');
+      setFoodData(data); // Assuming `data` is an array
     } catch (error) {
       console.error(error);
     }
+  };
+
+  useEffect(() => {
+    handleData();
   }, []);
 
   return (
@@ -45,6 +52,12 @@ const AllFoods = () => {
               Search
             </button>
           </div>
+        </div>
+
+        <div className='grid items-center justify-center grid-flow-col-1 md:grid-cols-2 lg:grid-cols-4 gap-3'>
+          {foodData.map(food => (
+            <Card food={food} key={food._id} />
+          ))}
         </div>
       </div>
     </>
