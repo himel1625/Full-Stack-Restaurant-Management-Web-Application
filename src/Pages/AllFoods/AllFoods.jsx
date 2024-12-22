@@ -16,7 +16,7 @@ const AllFoods = () => {
   const handleData = async () => {
     try {
       const { data } = await axiosSecure.get('/food');
-      setFoodData(data); // Assuming `data` is an array
+      setFoodData(data); 
     } catch (error) {
       console.error(error);
     }

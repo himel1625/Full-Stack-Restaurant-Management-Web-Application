@@ -7,6 +7,7 @@ import AllFoods from '../Pages/AllFoods/AllFoods';
 import Login from '../Pages/Authentication/Login/Login';
 import Register from '../Pages/Authentication/Register/Register';
 import Error from '../Pages/Error/Error';
+import FoodDetails from '../Pages/FoodDetails/FoodDetails';
 import Gallery from '../Pages/Gallery/Gallery';
 import Home from '../Pages/Home/Home';
 import PrivateRoute from './PrivateRoute';
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
       {
         path: '/AllFoods',
         element: <AllFoods />,
+      },
+      {
+        path: '/FoodDetails/:id',
+        element: (
+          <PrivateRoute>
+            <FoodDetails />
+          </PrivateRoute>
+        ),
       },
     ],
   },
