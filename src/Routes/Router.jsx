@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
+import Map from '../Components/Map/Map';
 import Layouts from '../Layouts/Layouts';
 import AddFood from '../Pages/AddFood/AddFood';
 import AllFoods from '../Pages/AllFoods/AllFoods';
@@ -9,6 +10,7 @@ import Error from '../Pages/Error/Error';
 import Gallery from '../Pages/Gallery/Gallery';
 import Home from '../Pages/Home/Home';
 import PrivateRoute from './PrivateRoute';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -18,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+      },
+      {
+        path: '/Location',
+        element: <Map />,
       },
       {
         path: '/Login',

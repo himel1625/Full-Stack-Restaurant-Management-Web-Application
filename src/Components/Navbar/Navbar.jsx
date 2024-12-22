@@ -64,6 +64,18 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
+                to='/Location'
+                className={({ isActive }) =>
+                  `font-bold ${
+                    isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                  }`
+                }
+              >
+                Our-Location
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
                 to='/AllFoods'
                 className={({ isActive }) =>
                   `font-bold ${
