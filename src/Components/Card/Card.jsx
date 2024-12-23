@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Card = ({ food }) => {
-  console.log(food);
   const {
     description,
     foodCategory,

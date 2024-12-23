@@ -8,18 +8,17 @@ const AllFoods = () => {
   const [search, setSearch] = useState('');
   const [foodData, setFoodData] = useState([]);
 
-  const handleSearch = () => {
-    console.log(search);
-    setSearch('');
-  };
-
-  const handleData = async () => {
+  const handleData = async (query = '') => {
     try {
-      const { data } = await axiosSecure.get('/food');
-      setFoodData(data); 
+      const { data } = await axiosSecure.get(`/food?search=${query}`);
+      setFoodData(data);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleSearch = () => {
+    handleData(search);
   };
 
   useEffect(() => {
@@ -35,7 +34,6 @@ const AllFoods = () => {
         <h2 className='text-3xl font-semibold text-center mb-6'>
           All Foods (DineMaster)
         </h2>
-
         <div className='flex justify-center mb-8'>
           <div className='relative w-full max-w-md flex'>
             <input

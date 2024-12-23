@@ -80,7 +80,7 @@ const Footer = () => {
                 </a>
               </p>
               <p className='text-sm mb-2'>
-                <strong>Address:</strong> 123 Main Street, City, Country
+                <strong>Address:</strong> 1200/4 Banani Road, Dhaka, Bangladesh
               </p>
               <p className='text-sm'>
                 <strong>Opening Hours:</strong> Mon - Sun, 10 AM - 10 PM
