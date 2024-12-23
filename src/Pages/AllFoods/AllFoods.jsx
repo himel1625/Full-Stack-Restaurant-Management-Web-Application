@@ -11,7 +11,8 @@ const AllFoods = () => {
   const handleData = async (query = '') => {
     try {
       const { data } = await axiosSecure.get(`/one-food?search=${query}`);
-      setFoodData(data);
+      const sortedData = data.sort((a, b) => b.sell - a.sell);
+      setFoodData(sortedData);
     } catch (error) {
       console.error(error);
     }

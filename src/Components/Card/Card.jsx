@@ -13,6 +13,7 @@ const Card = ({ food }) => {
     price,
     quantity,
     _id,
+    sell,
   } = food || {};
 
   const dialogRef = React.useRef(null);
@@ -58,6 +59,9 @@ const Card = ({ food }) => {
           </span>
           <span className='text-sm font-bold text-gray-500 dark:text-gray-400'>
             Qty: {quantity}
+          </span>
+          <span className='text-sm font-bold text-gray-500 dark:text-gray-400'>
+            sell: {sell}
           </span>
         </div>
         <div className='flex gap-2 justify-between'>
