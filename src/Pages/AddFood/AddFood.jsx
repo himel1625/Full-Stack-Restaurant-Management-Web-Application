@@ -65,8 +65,8 @@ const AddFood = () => {
             </label>
             <input
               type='url'
-              id='foodImage'
-              name='foodImage'
+              id='foodImageUrl'
+              name='foodImageUrl'
               className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
               placeholder='Enter food image URL'
               required
@@ -126,8 +126,6 @@ const AddFood = () => {
               required
             />
           </div>
-
-          {/* Added By (Name) */}
 
           {/* Food Origin (Country) */}
           <div className='col-span-1'>

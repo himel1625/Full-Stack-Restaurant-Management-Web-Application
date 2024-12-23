@@ -4,11 +4,13 @@ import Card from '../../Components/Card/Card';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const AllFoods = () => {
+
   const axiosSecure = useAxiosSecure();
   const [search, setSearch] = useState('');
   const [foodData, setFoodData] = useState([]);
 
   const handleData = async (query = '') => {
+   
     try {
       const { data } = await axiosSecure.get(`/one-food?search=${query}`);
       const sortedData = data.sort((a, b) => b.sell - a.sell);

@@ -12,7 +12,9 @@ const MyFood = () => {
   useEffect(() => {
     const handleData = async () => {
       try {
-        const { data } = await axiosSecure.get(`/my-food/${user?.email}`);
+        const { data } = await axiosSecure.get(
+          `/my-food/${user?.email}?buyer=true`,
+        );
         setAddFood(data);
       } catch (err) {
         console.error(err);
@@ -20,6 +22,7 @@ const MyFood = () => {
     };
     handleData();
   }, [user?.email]);
+
   const handleDelete = async id => {
     try {
       const result = await Swal.fire({
@@ -31,7 +34,6 @@ const MyFood = () => {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!',
       });
-
       if (result.isConfirmed) {
         await axiosSecure.delete(`/my-food/${id}`);
         setAddFood(prevFoods => prevFoods.filter(food => food._id !== id));
@@ -45,13 +47,12 @@ const MyFood = () => {
       console.error('Failed to delete food', err);
     }
   };
-
   return (
     <>
       <Helmet>
         <title>DineMaster | MyFood</title>
       </Helmet>
-      <div className='min-h-screen  dark:bg-gray-900 text-gray-800 dark:text-gray-200'>
+      <div className='min-h-screen   text-gray-800 dark:text-gray-200'>
         <div className='container mx-auto p-4'>
           <h1 className='text-2xl font-semibold mb-4'>My Food</h1>
           {myAddFood.length > 0 ? (
@@ -90,9 +91,9 @@ const MyFood = () => {
                       </td>
                       <td className='px-4  border border-gray-300 dark:border-gray-700 '>
                         <img
-                          src={food.foodImage}
+                          src={food.foodImageUrl}
                           alt={food.foodName}
-                          className='h-16 w-16 object-cover rounded-full'
+                          className='h-14 w-14 object-cover rounded-full'
                         />
                       </td>
                       <td className='px-4  border border-gray-300 dark:border-gray-700'>
@@ -102,10 +103,10 @@ const MyFood = () => {
                         ${food.price}
                       </td>
                       <td className='px-4  border border-gray-300 dark:border-gray-700'>
-                        {food.addByName}
+                        {food.seller}
                       </td>
                       <td className='px-4 border border-gray-300 dark:border-gray-700'>
-                        {food.description}
+                        {food.description.substring(0, 40)}
                       </td>
                       <td className='px-4  border border-gray-300 dark:border-gray-700 text-center'>
                         <button

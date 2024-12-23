@@ -25,7 +25,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div>
+    <div className='container mx-auto lg:mx-auto'>
       <div>
         <p className='text-center font-bold dark:text-blue-400 text-black text-4xl mb-6 '>
           Our Most Selling Foods
