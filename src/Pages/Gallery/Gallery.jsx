@@ -13,7 +13,6 @@ const Gallery = () => {
   const handleData = async () => {
     try {
       const { data } = await axiosSecure.get('/food');
-      console.log('Food Data:', data);
       setFoodData(data || []);
     } catch (error) {
       console.error('Error fetching food data:', error);

@@ -43,6 +43,7 @@ const Hero = () => {
           view All Food
         </button>
       </div>
+      
     </div>
   );
 };

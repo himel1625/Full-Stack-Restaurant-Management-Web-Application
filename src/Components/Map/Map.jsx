@@ -7,7 +7,7 @@ const Map = ({ locations = [] }) => {
   useEffect(() => {
     const map = L.map('map', {
       center: [23.7925, 90.4078],
-      zoom: 15,
+      zoom: 16,
       zoomControl: false,
     });
     L.control

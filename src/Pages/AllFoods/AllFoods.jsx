@@ -31,7 +31,7 @@ const AllFoods = () => {
         <title>DineMaster | AllFoods</title>
       </Helmet>
       <div className='container mx-auto px-4 py-8'>
-        <h2 className='text-3xl font-semibold text-center mb-6'>
+        <h2 className='text-3xl font-semibold text-center mb-6 dark:text-white'>
           All Foods (DineMaster)
         </h2>
         <div className='flex justify-center mb-8'>

@@ -87,18 +87,44 @@ const Navbar = () => {
               </NavLink>
             </li>
             {user && (
-              <li>
-                <NavLink
-                  to='/AddFood'
-                  className={({ isActive }) =>
-                    `font-bold ${
-                      isActive ? 'text-blue-300' : 'hover:text-blue-600'
-                    }`
-                  }
-                >
-                  Add-Food
-                </NavLink>
-              </li>
+              <>
+                <li>
+                  <NavLink
+                    to='/MyFood'
+                    className={({ isActive }) =>
+                      `font-bold ${
+                        isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                      }`
+                    }
+                  >
+                    MyFood
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to='/MyOrders'
+                    className={({ isActive }) =>
+                      `font-bold ${
+                        isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                      }`
+                    }
+                  >
+                    MyOrders
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to='/AddFood'
+                    className={({ isActive }) =>
+                      `font-bold ${
+                        isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                      }`
+                    }
+                  >
+                    Add-Food
+                  </NavLink>
+                </li>
+              </>
             )}
             <>
               {!user && (

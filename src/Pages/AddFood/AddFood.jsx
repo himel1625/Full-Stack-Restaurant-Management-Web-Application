@@ -1,8 +1,14 @@
 import { Helmet } from 'react-helmet-async';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const AddFood = () => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+
   const handleSubmit = async e => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -10,8 +16,11 @@ const AddFood = () => {
     try {
       await axiosSecure.post('/add-food', formDataObject);
       e.target.reset();
+      toast.success('Food Added Successfully');
+      navigate('/MyFood');
     } catch (error) {
       console.error('Error adding food:', error);
+      toast.error('Failed to add food');
     }
   };
 
@@ -26,9 +35,10 @@ const AddFood = () => {
         </h1>
         <form
           onSubmit={handleSubmit}
-          className='space-y-4 max-w-3xl mx-auto dark:bg-gray-900 p-8 rounded-lg shadow-lg grid grid-cols-1 sm:grid-cols-2 gap-6'
+          className='space-y-4 max-w-3xl mx-auto dark:bg-gray-900 p-8 rounded-lg shadow-lg grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6'
         >
-          <div>
+          {/* Food Name */}
+          <div className='col-span-1'>
             <label
               htmlFor='foodName'
               className='block text-lg font-medium text-blue-600 dark:text-blue-500'
@@ -45,7 +55,8 @@ const AddFood = () => {
             />
           </div>
 
-          <div>
+          {/* Food Image URL */}
+          <div className='col-span-1'>
             <label
               htmlFor='foodImage'
               className='block text-lg font-medium text-blue-600 dark:text-blue-500'
@@ -62,7 +73,8 @@ const AddFood = () => {
             />
           </div>
 
-          <div>
+          {/* Food Category */}
+          <div className='col-span-1'>
             <label
               htmlFor='foodCategory'
               className='block text-lg font-medium text-blue-600 dark:text-blue-500'
@@ -79,7 +91,8 @@ const AddFood = () => {
             />
           </div>
 
-          <div>
+          {/* Quantity */}
+          <div className='col-span-1'>
             <label
               htmlFor='quantity'
               className='block text-lg font-medium text-blue-600 dark:text-blue-500'
@@ -96,7 +109,8 @@ const AddFood = () => {
             />
           </div>
 
-          <div>
+          {/* Price */}
+          <div className='col-span-1'>
             <label
               htmlFor='price'
               className='block text-lg font-medium text-blue-600 dark:text-blue-500'
@@ -113,41 +127,10 @@ const AddFood = () => {
             />
           </div>
 
-          <div>
-            <label
-              htmlFor='addByName'
-              className='block text-lg font-medium text-blue-600 dark:text-blue-500'
-            >
-              Added By (Name)
-            </label>
-            <input
-              type='text'
-              id='addByName'
-              name='addByName'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
-              placeholder='Enter your name'
-              required
-            />
-          </div>
+          {/* Added By (Name) */}
 
-          <div>
-            <label
-              htmlFor='addByEmail'
-              className='block text-lg font-medium text-blue-600 dark:text-blue-500'
-            >
-              Added By (Email)
-            </label>
-            <input
-              type='email'
-              id='addByEmail'
-              name='addByEmail'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
-              placeholder='Enter your email'
-              required
-            />
-          </div>
-
-          <div>
+          {/* Food Origin (Country) */}
+          <div className='col-span-1'>
             <label
               htmlFor='foodOrigin'
               className='block text-lg font-medium text-blue-600 dark:text-blue-500'
@@ -164,7 +147,8 @@ const AddFood = () => {
             />
           </div>
 
-          <div className='col-span-2'>
+          {/* Description */}
+          <div className='col-span-1 sm:col-span-2'>
             <label
               htmlFor='description'
               className='block text-lg font-medium text-blue-600 dark:text-blue-500'
@@ -181,7 +165,21 @@ const AddFood = () => {
             ></textarea>
           </div>
 
-          <div className='col-span-2'>
+          {/* Hidden Email */}
+          <div className='col-span-1 hidden'>
+            <input
+              type='email'
+              id='email'
+              defaultValue={user && user?.email}
+              readOnly
+              name='seller'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              required
+            />
+          </div>
+
+          {/* Submit Button */}
+          <div className='col-span-1 sm:col-span-2'>
             <button
               type='submit'
               className='w-full py-3 mt-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-500 transition duration-300'

@@ -10,6 +10,8 @@ import Error from '../Pages/Error/Error';
 import FoodDetails from '../Pages/FoodDetails/FoodDetails';
 import Gallery from '../Pages/Gallery/Gallery';
 import Home from '../Pages/Home/Home';
+import MyFood from '../Pages/MyFoods/MyFood';
+import MyOrders from '../Pages/MyOrders/MyOrders';
 import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
@@ -55,6 +57,22 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <FoodDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/MyFood',
+        element: (
+          <PrivateRoute>
+            <MyFood />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/MyOrders',
+        element: (
+          <PrivateRoute>
+            <MyOrders />
           </PrivateRoute>
         ),
       },
