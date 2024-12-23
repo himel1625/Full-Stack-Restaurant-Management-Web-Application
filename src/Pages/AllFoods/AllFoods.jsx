@@ -10,7 +10,7 @@ const AllFoods = () => {
 
   const handleData = async (query = '') => {
     try {
-      const { data } = await axiosSecure.get(`/food?search=${query}`);
+      const { data } = await axiosSecure.get(`/one-food?search=${query}`);
       setFoodData(data);
     } catch (error) {
       console.error(error);

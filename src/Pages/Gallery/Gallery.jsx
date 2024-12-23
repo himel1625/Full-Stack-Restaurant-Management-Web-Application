@@ -1,23 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import 'yet-another-react-lightbox/styles.css';
+import { Lightbox } from 'yet-another-react-lightbox'; 
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const Gallery = () => {
   const axiosSecure = useAxiosSecure();
   const [foodData, setFoodData] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleData = async () => {
     try {
       const { data } = await axiosSecure.get('/food');
-      setFoodData(data);
+      console.log('Food Data:', data);
+      setFoodData(data || []);
     } catch (error) {
-      console.error(error);
+      console.error('Error fetching food data:', error);
     }
   };
 
   useEffect(() => {
     handleData();
   }, []);
+
+  const slides = foodData.slice(0, 12).map(food => ({
+    src: food.foodImageUrl,
+    alt: food.foodName,
+  }));
 
   return (
     <>
@@ -28,29 +38,38 @@ const Gallery = () => {
         <h1 className='text-4xl font-semibold text-center mb-8 dark:text-blue-300'>
           Food Gallery
         </h1>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-          {foodData.map(food => (
-            <div
-              key={food._id}
-              className='relative overflow-hidden rounded-lg shadow-lg group'
-            >
-              <img
-                src={food.foodImageUrl}
-                alt={food.name}
-                className='w-full h-64 object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:opacity-70'
-              />
-              <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer'>
-                <p className='text-white text-lg font-semibold transform group-hover:translate-y-[-10px] transition-transform duration-300'>
-                  {food.foodName} $
-                </p>
-                <p className='text-white text-lg font-semibold transform group-hover:translate-y-[-10px] transition-transform duration-300'>
-                  ( {food.price})
-                </p>
+        {foodData.length > 0 ? (
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+            {foodData.slice(0, 12).map((food, index) => (
+              <div
+                key={food._id}
+                className='relative overflow-hidden rounded-lg shadow-lg group cursor-pointer'
+                onClick={() => {
+                  setCurrentIndex(index);
+                  setOpen(true);
+                }}
+              >
+                <img
+                  src={food.foodImageUrl}
+                  alt={food.foodName}
+                  className='w-full h-64 object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:opacity-70'
+                />
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <p className='text-center text-gray-500'>No food items available.</p>
+        )}
       </div>
+
+      {slides.length > 0 && (
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          slides={slides}
+          index={currentIndex}
+        />
+      )}
     </>
   );
 };
