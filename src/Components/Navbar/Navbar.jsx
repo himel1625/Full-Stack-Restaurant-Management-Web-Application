@@ -25,6 +25,7 @@ const Navbar = () => {
     logOut();
     toast.success('Logout SuccessFull ');
   };
+  
   return (
     <div className='sticky top-0 z-10'>
       <div className='navbar bg-base-100 dark:bg-DGray shadow-sm px-8 mx-auto'>
@@ -72,6 +73,18 @@ const Navbar = () => {
                 }
               >
                 Our-Location
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to='/reservation'
+                className={({ isActive }) =>
+                  `font-bold ${
+                    isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                  }`
+                }
+              >
+                Reservation
               </NavLink>
             </li>
             <li>
@@ -210,44 +223,60 @@ const Navbar = () => {
                   Our-Location
                 </NavLink>
               </li>
-
               <li>
                 <NavLink
-                  to='/MyOrders'
+                  to='/reservation'
                   className={({ isActive }) =>
                     `font-bold ${
                       isActive ? 'text-blue-300' : 'hover:text-blue-600'
                     }`
                   }
                 >
-                  MyOrders
+                  Reservation
                 </NavLink>
               </li>
 
-              <li>
-                <NavLink
-                  to='/MyFood'
-                  className={({ isActive }) =>
-                    `font-bold ${
-                      isActive ? 'text-blue-300' : 'hover:text-blue-600'
-                    }`
-                  }
-                >
-                  MyFood
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to='/AddFood'
-                  className={({ isActive }) =>
-                    `font-bold ${
-                      isActive ? 'text-blue-300' : 'hover:text-blue-600'
-                    }`
-                  }
-                >
-                  Add-Food
-                </NavLink>
-              </li>
+              {user && (
+                <>
+                  <li>
+                    <NavLink
+                      to='/MyOrders'
+                      className={({ isActive }) =>
+                        `font-bold ${
+                          isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                        }`
+                      }
+                    >
+                      MyOrders
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink
+                      to='/MyFood'
+                      className={({ isActive }) =>
+                        `font-bold ${
+                          isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                        }`
+                      }
+                    >
+                      MyFood
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to='/AddFood'
+                      className={({ isActive }) =>
+                        `font-bold ${
+                          isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                        }`
+                      }
+                    >
+                      Add-Food
+                    </NavLink>
+                  </li>
+                </>
+              )}
 
               <li>
                 <button

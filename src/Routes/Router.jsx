@@ -13,6 +13,7 @@ import Gallery from '../Pages/Gallery/Gallery';
 import Home from '../Pages/Home/Home';
 import MyFood from '../Pages/MyFoods/MyFood';
 import MyOrders from '../Pages/MyOrders/MyOrders';
+import Reservation from '../Pages/Reservation/Reservation';
 import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
             <FoodPurchase />
           </PrivateRoute>
         ),
+      },
+      {
+        path: 'reservation',
+        element: <Reservation />,
       },
     ],
   },
