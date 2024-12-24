@@ -7,7 +7,7 @@ const Map = ({ locations = [] }) => {
   useEffect(() => {
     const map = L.map('map', {
       center: [23.7925, 90.4078],
-      zoom: 16,
+      zoom: 12,
       zoomControl: false,
     });
     L.control
@@ -24,7 +24,7 @@ const Map = ({ locations = [] }) => {
     // Add markers
     if (locations.length === 0) {
       const defaultMarker = L.marker([23.789855, 90.408164]).addTo(map);
-      defaultMarker.bindPopup('Default Location');
+      defaultMarker.bindPopup('1200/4 Banani ');
     } else {
       locations.forEach(({ coords, popup }) => {
         const marker = L.marker(coords).addTo(map);

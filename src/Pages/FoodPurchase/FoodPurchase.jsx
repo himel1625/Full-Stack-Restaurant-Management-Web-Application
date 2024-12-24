@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
@@ -9,6 +9,7 @@ const FoodPurchase = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const { id } = useParams();
+  const Navigate = useNavigate();
   const [purchaseFood, setPurchaseFood] = useState({});
   const now = new Date();
   const formattedDate = now.toLocaleDateString('en-US');
@@ -45,6 +46,7 @@ const FoodPurchase = () => {
     try {
       await axiosSecure.post(`/purchaseFood`, purchase);
       toast.success('food added');
+      Navigate('/MyOrders');
     } catch (err) {
       console.log(err);
     }
@@ -95,6 +97,7 @@ const FoodPurchase = () => {
                 <input
                   type='number'
                   name='Quantity'
+                  required
                   className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500  dark:bg-black'
                   placeholder='Enter quantity'
                 />
