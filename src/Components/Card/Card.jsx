@@ -51,19 +51,12 @@ const Card = ({ food }) => {
           </span>
         </div>
 
-        <div className='flex gap-2 justify-between'>
-          <div className='w-full'>
-            <NavLink to={`/FoodDetails/${_id}`}>
-              <button className='w-full h-8 mt-4 text-sm font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 ease-in-out'>
-                View More..
-              </button>
-            </NavLink>
-          </div>
-          <div className='w-full'>
+        <div className='w-full'>
+          <NavLink to={`/FoodDetails/${_id}`}>
             <button className='w-full h-8 mt-4 text-sm font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 ease-in-out'>
-              Order now..
+              View More..
             </button>
-          </div>
+          </NavLink>
         </div>
       </div>
     </div>

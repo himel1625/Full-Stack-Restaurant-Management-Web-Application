@@ -5,7 +5,6 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 const Hero = () => {
   const axiosSecure = useAxiosSecure();
   const [foodData, setFoodData] = useState([]);
-  console.log(foodData);
   const navigate = useNavigate();
   const handelData = async () => {
     try {

@@ -8,6 +8,7 @@ import Login from '../Pages/Authentication/Login/Login';
 import Register from '../Pages/Authentication/Register/Register';
 import Error from '../Pages/Error/Error';
 import FoodDetails from '../Pages/FoodDetails/FoodDetails';
+import FoodPurchase from '../Pages/FoodPurchase/FoodPurchase';
 import Gallery from '../Pages/Gallery/Gallery';
 import Home from '../Pages/Home/Home';
 import MyFood from '../Pages/MyFoods/MyFood';
@@ -73,6 +74,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyOrders />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/FoodPurchase/:id',
+        element: (
+          <PrivateRoute>
+            <FoodPurchase />
           </PrivateRoute>
         ),
       },
