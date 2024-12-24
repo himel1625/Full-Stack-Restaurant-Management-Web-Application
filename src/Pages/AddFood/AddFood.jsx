@@ -13,6 +13,7 @@ const AddFood = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formDataObject = Object.fromEntries(formData.entries());
+
     try {
       await axiosSecure.post('/add-food', formDataObject);
       e.target.reset();
@@ -175,7 +176,17 @@ const AddFood = () => {
               required
             />
           </div>
-
+          <div className='col-span-1 hidden'>
+            <input
+              type='number'
+              id='number'
+              defaultValue={1}
+              readOnly
+              name='sell'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              required
+            />
+          </div>
           {/* Submit Button */}
           <div className='col-span-1 sm:col-span-2'>
             <button

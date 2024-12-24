@@ -12,6 +12,7 @@ const FoodPurchase = () => {
   const Navigate = useNavigate();
   const [Disabled, setDisabled] = useState(false);
   const [purchaseFood, setPurchaseFood] = useState({});
+  const [Quantity, setQuantity] = useState(0);
   const now = new Date();
   const formattedDate = now.toLocaleDateString('en-US');
 
@@ -59,6 +60,13 @@ const FoodPurchase = () => {
       console.log(err);
     }
   };
+  const handlePurchaseSellCunt = async id => {
+    try {
+      await axiosSecure.post(`/addSell/${id}?Quantity=${Quantity}`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -66,53 +74,55 @@ const FoodPurchase = () => {
         <title>DineMaster | FoodPurchase</title>
       </Helmet>
       <div>
-        <div className='min-h-screen flex items-center justify-center '>
+        <div className='min-h-screen flex items-center justify-center mx-4'>
           <div className='bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-md'>
-            <h1 className='text-2xl font-bold text-gray-800 mb-6 text-center'>
+            <h1 className='text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center'>
               Food Purchase
             </h1>
             <form className='space-y-4' onSubmit={handlePurchaseFood}>
               <div>
-                <label className='block text-gray-600 mb-2 font-medium'>
+                <label className='block text-gray-600 dark:text-white mb-2 font-medium'>
                   Food Name
                 </label>
                 <input
                   type='text'
                   name='foodName'
                   defaultValue={purchaseFood.foodName || ''}
-                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-black'
+                  readOnly
+                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-black dark:text-white'
                   placeholder='Enter food name'
                 />
               </div>
 
               <div>
-                <label className='block text-gray-600 mb-2 font-medium'>
+                <label className='block text-gray-600 dark:text-white mb-2 font-medium'>
                   Price
                 </label>
                 <input
                   type='number'
                   name='price'
+                  readOnly
                   defaultValue={purchaseFood.price || ''}
-                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-black'
+                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-black dark:text-white'
                   placeholder='Enter price'
                 />
               </div>
-
               <div>
-                <label className='block text-gray-600 mb-2 font-medium'>
+                <label className='block text-gray-600 dark:text-white mb-2 font-medium'>
                   Quantity
                 </label>
                 <input
                   type='number'
                   name='Quantity'
                   required
-                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-black'
+                  onBlur={e => setQuantity(e.target.value)}
+                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-black dark:text-white'
                   placeholder='Enter quantity'
                 />
               </div>
 
               <div>
-                <label className='block text-gray-600 mb-2 font-medium'>
+                <label className='block text-gray-600 dark:text-white mb-2 font-medium'>
                   Buyer Name
                 </label>
                 <input
@@ -120,12 +130,12 @@ const FoodPurchase = () => {
                   name='buyerName'
                   value={user?.displayName || ''}
                   readOnly
-                  className='w-full px-4 py-2 bg-gray-100 border rounded-md focus:outline-none cursor-not-allowed dark:bg-black'
+                  className='w-full px-4 py-2 bg-gray-100 dark:bg-black dark:text-white border rounded-md focus:outline-none cursor-not-allowed'
                 />
               </div>
 
               <div>
-                <label className='block text-gray-600 mb-2 font-medium'>
+                <label className='block text-gray-600 dark:text-white mb-2 font-medium'>
                   Buyer Email
                 </label>
                 <input
@@ -133,14 +143,15 @@ const FoodPurchase = () => {
                   name='buyer'
                   value={user?.email || ''}
                   readOnly
-                  className='w-full px-4 py-2 bg-gray-100 border rounded-md focus:outline-none cursor-not-allowed dark:bg-black'
+                  className='w-full px-4 py-2 bg-gray-100 dark:bg-black dark:text-white border rounded-md focus:outline-none cursor-not-allowed'
                 />
               </div>
 
               <button
                 type='submit'
+                onClick={() => handlePurchaseSellCunt(purchaseFood._id)}
                 disabled={Disabled === true}
-                className='w-full disabled:cursor-not-allowed bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition-all'
+                className='w-full disabled:cursor-not-allowed bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-all'
               >
                 Purchase
               </button>

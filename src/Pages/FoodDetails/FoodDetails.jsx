@@ -70,7 +70,7 @@ const FoodDetails = () => {
                   </p>
                 </div>
                 <p className='text-lg text-gray-700 dark:text-gray-300'>
-                  <strong className='font-semibold'>Quantity:</strong>{' '}
+                  <strong className='font-semibold'>Sell:</strong>{' '}
                   {foodData.sell || 'N/A'}
                 </p>
               </div>

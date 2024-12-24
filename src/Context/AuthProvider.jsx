@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+  
   const logOut = async () => {
     setLoading(true);
     const { data } = await axios.post(
@@ -38,6 +39,7 @@ const AuthProvider = ({ children }) => {
     console.log(data);
     return signOut(auth);
   };
+
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,

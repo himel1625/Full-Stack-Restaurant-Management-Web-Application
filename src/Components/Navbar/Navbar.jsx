@@ -188,6 +188,31 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
+                  to='/Gallery'
+                  className={({ isActive }) =>
+                    `font-bold ${
+                      isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                    }`
+                  }
+                >
+                  Gallery
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to='/Location'
+                  className={({ isActive }) =>
+                    `font-bold ${
+                      isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                    }`
+                  }
+                >
+                  Our-Location
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
                   to='/MyOrders'
                   className={({ isActive }) =>
                     `font-bold ${
