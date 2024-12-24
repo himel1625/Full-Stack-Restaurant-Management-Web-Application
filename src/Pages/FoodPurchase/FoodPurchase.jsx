@@ -10,9 +10,11 @@ const FoodPurchase = () => {
   const { user } = useAuth();
   const { id } = useParams();
   const Navigate = useNavigate();
+  const [Disabled, setDisabled] = useState(false);
   const [purchaseFood, setPurchaseFood] = useState({});
   const now = new Date();
   const formattedDate = now.toLocaleDateString('en-US');
+
   useEffect(() => {
     const handelData = async () => {
       try {
@@ -24,6 +26,12 @@ const FoodPurchase = () => {
     };
     handelData();
   }, [id, axiosSecure]);
+
+  useEffect(() => {
+    if (purchaseFood.seller === user.email) {
+      setDisabled(true);
+    }
+  }, [purchaseFood.seller, user.email]);
 
   const handlePurchaseFood = async e => {
     e.preventDefault();
@@ -45,7 +53,7 @@ const FoodPurchase = () => {
     };
     try {
       await axiosSecure.post(`/purchaseFood`, purchase);
-      toast.success('food added');
+      toast.success('Food purchase successful');
       Navigate('/MyOrders');
     } catch (err) {
       console.log(err);
@@ -85,7 +93,7 @@ const FoodPurchase = () => {
                   type='number'
                   name='price'
                   defaultValue={purchaseFood.price || ''}
-                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500  dark:bg-black'
+                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-black'
                   placeholder='Enter price'
                 />
               </div>
@@ -98,7 +106,7 @@ const FoodPurchase = () => {
                   type='number'
                   name='Quantity'
                   required
-                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500  dark:bg-black'
+                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-black'
                   placeholder='Enter quantity'
                 />
               </div>
@@ -112,7 +120,7 @@ const FoodPurchase = () => {
                   name='buyerName'
                   value={user?.displayName || ''}
                   readOnly
-                  className='w-full px-4 py-2 bg-gray-100 border rounded-md focus:outline-none cursor-not-allowed  dark:bg-black'
+                  className='w-full px-4 py-2 bg-gray-100 border rounded-md focus:outline-none cursor-not-allowed dark:bg-black'
                 />
               </div>
 
@@ -131,7 +139,8 @@ const FoodPurchase = () => {
 
               <button
                 type='submit'
-                className='w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition-all'
+                disabled={Disabled === true}
+                className='w-full disabled:cursor-not-allowed bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition-all'
               >
                 Purchase
               </button>
