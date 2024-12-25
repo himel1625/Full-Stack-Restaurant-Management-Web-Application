@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
+
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [theme, setTheme] = useState(() => {
@@ -21,11 +22,12 @@ const Navbar = () => {
   const toggleTheme = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
+
   const handleLogout = () => {
     logOut();
-    toast.success('Logout SuccessFull ');
+    toast.success('Logout Successful');
   };
-  
+
   return (
     <div className='sticky top-0 z-10'>
       <div className='navbar bg-base-100 dark:bg-DGray shadow-sm px-8 mx-auto'>
@@ -38,7 +40,7 @@ const Navbar = () => {
         </div>
 
         <div className='flex-none'>
-          <ul className='gap-6 px-1 font-bold dark:text-white hidden md:flex'>
+          <ul className='flex gap-6 px-1 font-bold dark:text-white hidden md:flex justify-center'>
             <li>
               <NavLink
                 to='/'
@@ -113,7 +115,6 @@ const Navbar = () => {
                     MyOrders
                   </NavLink>
                 </li>
-
                 <li>
                   <NavLink
                     to='/MyFood'
@@ -140,23 +141,21 @@ const Navbar = () => {
                 </li>
               </>
             )}
-            <>
-              {!user && (
-                <li>
-                  <NavLink
-                    to='/Login'
-                    className={({ isActive }) =>
-                      `font-bold ${
-                        isActive ? 'text-blue-300' : 'hover:text-blue-600'
-                      }`
-                    }
-                  >
-                    Login
-                  </NavLink>
-                </li>
-              )}
-            </>
           </ul>
+          {!user && (
+            <li>
+              <NavLink
+                to='/Login'
+                className={({ isActive }) =>
+                  `font-bold dark:text-white ${
+                    isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                  }`
+                }
+              >
+                Login
+              </NavLink>
+            </li>
+          )}
 
           <div className='dropdown dropdown-end z-50'>
             <div
@@ -171,7 +170,7 @@ const Navbar = () => {
                     alt='User Profile Photo'
                     src={
                       user?.photoURL ||
-                      'https://cdn-icons-png.flaticon.com/512/8847/8847419.png'
+                      'https://i.ibb.co.com/fMFh47X/vector-flat-icon-professional-ma.jpg'
                     }
                   />
                 </div>
@@ -277,7 +276,6 @@ const Navbar = () => {
                   </li>
                 </>
               )}
-
               <li>
                 <button
                   onClick={toggleTheme}

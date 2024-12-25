@@ -7,14 +7,14 @@ import useAuth from '../../../Hooks/useAuth';
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location?.state || '/';
+  const fromHome = location?.state || '/';
   const { signInWithGoogle, Login } = useAuth();
 
   const handelGoogleLogin = async () => {
     try {
       await signInWithGoogle();
       toast.success('Signin Successful');
-      navigate(from, { replace: true });
+      navigate(fromHome, { replace: true });
     } catch (err) {
       console.error(err);
       toast.error(err?.message);
@@ -47,7 +47,7 @@ const Login = () => {
     try {
       await Login(email, password);
       toast.success('Login Successful');
-      navigate(from, { replace: true });
+      navigate(fromHome, { replace: true });
       e.target.reset();
     } catch (err) {
       console.error(err);
@@ -64,7 +64,7 @@ const Login = () => {
         <div className='border border-gray-200 shadow-md dark:bg-black rounded-xl mx-3 w-full sm:w-11/12 md:w-2/3 lg:w-1/3'>
           <div className='mt-6 mb-2'>
             <p className='text-center font-bold text-xl dark:text-white'>
-              Welcome to DineMaster
+              Welcome to DineMaster(Login)
             </p>
           </div>
           <form onSubmit={handelSubmit} className='dark:text-white'>

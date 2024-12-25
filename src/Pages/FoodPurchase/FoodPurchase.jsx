@@ -36,6 +36,7 @@ const FoodPurchase = () => {
 
   const handlePurchaseFood = async e => {
     e.preventDefault();
+
     const form = e.target;
     const formData = new FormData(form);
     const foodName = formData.get('foodName');
@@ -43,6 +44,15 @@ const FoodPurchase = () => {
     const quantity = formData.get('Quantity');
     const buyerName = formData.get('buyerName');
     const buyer = formData.get('buyer');
+    if (Quantity <= 0) {
+      toast.error('Quantity must be greater than 0');
+      return;
+    }
+    if (Quantity > purchaseFood.quantity) {
+      toast.error('Quantity exceeds available stock');
+      return;
+    }
+
     const purchase = {
       foodName,
       price,
@@ -105,6 +115,19 @@ const FoodPurchase = () => {
                   defaultValue={purchaseFood.price || ''}
                   className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-black dark:text-white'
                   placeholder='Enter price'
+                />
+              </div>
+              <div>
+                <label className='block text-gray-600 dark:text-white mb-2 font-medium'>
+                  Available Quantity
+                </label>
+                <input
+                  type='number'
+                  name='Quantity'
+                  defaultValue={purchaseFood.quantity || ''}
+                  readOnly
+                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-black dark:text-white'
+                  placeholder='Enter quantity'
                 />
               </div>
               <div>

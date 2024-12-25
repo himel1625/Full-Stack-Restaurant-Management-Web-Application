@@ -13,7 +13,6 @@ const AddFood = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formDataObject = Object.fromEntries(formData.entries());
-
     try {
       await axiosSecure.post('/add-food', formDataObject);
       e.target.reset();
@@ -98,7 +97,7 @@ const AddFood = () => {
               htmlFor='quantity'
               className='block text-lg font-medium text-blue-600 dark:text-blue-500'
             >
-              Quantity
+              Available Quantity
             </label>
             <input
               type='number'
@@ -180,7 +179,7 @@ const AddFood = () => {
             <input
               type='number'
               id='number'
-              defaultValue={1}
+              defaultValue={0}
               readOnly
               name='sell'
               className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'

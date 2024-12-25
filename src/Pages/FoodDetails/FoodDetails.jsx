@@ -65,15 +65,17 @@ const FoodDetails = () => {
                     {foodData.price || 'N/A'}
                   </p>
                   <p className='text-lg text-gray-700 dark:text-gray-300'>
-                    <strong className='font-semibold'>Quantity:</strong>{' '}
+                    <strong className='font-semibold'>
+                      Available Quantity:
+                    </strong>{' '}
                     {foodData.quantity || 'N/A'}
                   </p>
                 </div>
-                <p className='text-lg text-gray-700 dark:text-gray-300'>
-                  <strong className='font-semibold'>Sell:</strong>{' '}
-                  {foodData.sell || 'N/A'}
-                </p>
               </div>
+              <p className='text-lg text-gray-700 dark:text-gray-300'>
+                <strong className='font-semibold'> Total Sell:</strong>{' '}
+                {foodData.sell || 'N/A'}
+              </p>
               <NavLink to={`/FoodPurchase/${foodData._id}`}>
                 <button className='w-full h-8 mt-4 text-sm font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 ease-in-out'>
                   Purchase..
