@@ -234,6 +234,18 @@ const Navbar = () => {
                   Reservation
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  to='/AllFoods'
+                  className={({ isActive }) =>
+                    `font-bold ${
+                      isActive ? 'text-blue-300' : 'hover:text-blue-600'
+                    }`
+                  }
+                >
+                  All-Foods
+                </NavLink>
+              </li>
 
               {user && (
                 <>

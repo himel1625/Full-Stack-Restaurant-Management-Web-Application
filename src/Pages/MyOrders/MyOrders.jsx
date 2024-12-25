@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
+import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const MyOrders = () => {
+  const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [myOrder, setMyOrder] = useState([]);
 
   useEffect(() => {
     const handleData = async () => {
-      const { data } = await axiosSecure.get('/myOrderFood');
+      const { data } = await axiosSecure.get(`/myOrderFood/${user?.email}`);
       setMyOrder(data);
     };
     handleData();
