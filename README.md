@@ -60,7 +60,7 @@ The Restaurant Management Website is a comprehensive solution designed to stream
   - Backend search, filtering, and pagination capabilities.
 
 ## Live Demo
-Experience the live version of the Restaurant Management Website here: [Live Demo](#)
+Experience the live version of the Restaurant Management Website here: [https://dinemaster-6b18e.web.app/](#)
 
 ---
 ## **License**
