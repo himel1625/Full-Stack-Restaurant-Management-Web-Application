@@ -7,10 +7,18 @@ const AllFoods = () => {
   const axiosSecure = useAxiosSecure();
   const [search, setSearch] = useState('');
   const [foodData, setFoodData] = useState([]);
+  const [cuuPage, setCuuPage] = useState(0);
+  const itemPerPage = 8;
+
+  const handleSearch = () => {
+    handleData(search);
+  };
 
   const handleData = async (query = '') => {
     try {
-      const { data } = await axiosSecure.get(`/one-food?search=${query}`);
+      const { data } = await axiosSecure.get(
+        `/one-food?search=${query}&page=${cuuPage}&size=${itemPerPage}`,
+      );
       const sortedData = data.sort((a, b) => b.sell - a.sell);
       setFoodData(sortedData);
     } catch (error) {
@@ -18,13 +26,22 @@ const AllFoods = () => {
     }
   };
 
-  const handleSearch = () => {
-    handleData(search);
-  };
-
   useEffect(() => {
     handleData();
-  }, []);
+  }, [cuuPage]);
+
+  const handlePrev = () => {
+    if (cuuPage > 0) {
+      setCuuPage(cuuPage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (foodData.length === 0) {
+      return;
+    }
+    setCuuPage(cuuPage + 1);
+  };
 
   return (
     <>
@@ -53,16 +70,38 @@ const AllFoods = () => {
           </div>
         </div>
 
-        <div className='grid items-center justify-center grid-flow-col-1 md:grid-cols-2 lg:grid-cols-4 gap-3'>
-          {foodData.map(food => (
-            <Card food={food} key={food._id} />
-          ))}
+        <div className='grid items-center justify-center grid-flow-col-1 md:grid-cols-2 lg:grid-cols-4 gap-3 min-h-[calc(100vh-232px)] '>
+          {foodData.length > 0 ? (
+            foodData.map(food => <Card food={food} key={food._id} />)
+          ) : (
+            <div className='col-span-4 text-center text-xl text-red-500'>
+              No foods available for this page
+            </div>
+          )}
         </div>
-
-        {/* pagination */}
-       
+        {/* Pagination */}
+        <div className='flex justify-center items-center mt-8 space-x-4'>
+          <button
+            onClick={handlePrev}
+            className='px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed'
+            disabled={cuuPage === 0}
+          >
+            Prev
+          </button>
+          <span className='text-lg font-bold text-blue-500 '>
+            Page {cuuPage + 1}
+          </span>
+          <button
+            onClick={handleNext}
+            className='px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed'
+            disabled={foodData.length === 0}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </>
   );
 };
+
 export default AllFoods;
