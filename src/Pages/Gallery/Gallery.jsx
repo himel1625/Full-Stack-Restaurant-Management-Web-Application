@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Lightbox } from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-import { Lightbox } from 'yet-another-react-lightbox'; 
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const Gallery = () => {
