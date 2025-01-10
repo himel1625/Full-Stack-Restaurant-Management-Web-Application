@@ -99,7 +99,7 @@ const FoodPurchase = () => {
                   name='foodName'
                   defaultValue={purchaseFood.foodName || ''}
                   readOnly
-                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-black dark:text-white'
+                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:bg-black dark:text-white'
                   placeholder='Enter food name'
                 />
               </div>
@@ -113,7 +113,7 @@ const FoodPurchase = () => {
                   name='price'
                   readOnly
                   defaultValue={purchaseFood.price || ''}
-                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-black dark:text-white'
+                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:bg-black dark:text-white'
                   placeholder='Enter price'
                 />
               </div>
@@ -126,7 +126,7 @@ const FoodPurchase = () => {
                   name='Quantity'
                   defaultValue={purchaseFood.quantity || ''}
                   readOnly
-                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-black dark:text-white'
+                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:bg-black dark:text-white'
                   placeholder='Enter quantity'
                 />
               </div>
@@ -139,7 +139,7 @@ const FoodPurchase = () => {
                   name='Quantity'
                   required
                   onBlur={e => setQuantity(e.target.value)}
-                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-black dark:text-white'
+                  className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:bg-black dark:text-white'
                   placeholder='Enter quantity'
                 />
               </div>
@@ -174,7 +174,7 @@ const FoodPurchase = () => {
                 type='submit'
                 onClick={() => handlePurchaseSellCunt(purchaseFood._id)}
                 disabled={Disabled === true}
-                className='w-full disabled:cursor-not-allowed bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-all'
+                className='w-full disabled:cursor-not-allowed bg-text text-white py-2 rounded-sm'
               >
                 Purchase
               </button>

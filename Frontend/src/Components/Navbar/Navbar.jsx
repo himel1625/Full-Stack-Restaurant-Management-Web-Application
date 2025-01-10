@@ -50,7 +50,9 @@ const Navbar = () => {
           <NavLink
             to='/'
             className={({ isActive }) =>
-              `font-extrabold  ${isActive ? 'text-[#FFFFFF]' : ' text-black'}`
+              `font-extrabold  ${
+                isActive ? 'text-[#FFFFFF]' : ' text-black dark:text-yellow-600'
+              }`
             }
           >
             Home
@@ -58,7 +60,9 @@ const Navbar = () => {
           <NavLink
             to='/gallery'
             className={({ isActive }) =>
-              `font-extrabold  ${isActive ? 'text-[#FFFFFF]' : ' text-black'}`
+              `font-extrabold  ${
+                isActive ? 'text-[#FFFFFF]' : ' text-black dark:text-yellow-600'
+              }`
             }
           >
             Gallery
@@ -66,7 +70,11 @@ const Navbar = () => {
           <NavLink
             to='/location'
             className={({ isActive }) =>
-              `font-extrabold  ${isActive ? 'text-[#FFFFFF]' : ' text-black'}`
+              `font-extrabold  ${
+                isActive
+                  ? 'text-[#FFFFFF]'
+                  : ' text-black dark:text-yellow-600 '
+              }`
             }
           >
             Our-Location
@@ -74,7 +82,9 @@ const Navbar = () => {
           <NavLink
             to='/reservation'
             className={({ isActive }) =>
-              `font-extrabold  ${isActive ? 'text-[#FFFFFF]' : ' text-black'}`
+              `font-extrabold  ${
+                isActive ? 'text-[#FFFFFF]' : ' text-black dark:text-yellow-600'
+              }`
             }
           >
             Reservation
@@ -82,7 +92,9 @@ const Navbar = () => {
           <NavLink
             to='/allFoods'
             className={({ isActive }) =>
-              `font-extrabold  ${isActive ? 'text-[#FFFFFF]' : ' text-black'}`
+              `font-extrabold  ${
+                isActive ? 'text-[#FFFFFF]' : ' text-black dark:text-yellow-600'
+              }`
             }
           >
             All-Foods
@@ -93,7 +105,9 @@ const Navbar = () => {
                 to='/myOrders'
                 className={({ isActive }) =>
                   `font-extrabold  ${
-                    isActive ? 'text-[#FFFFFF]' : ' text-black'
+                    isActive
+                      ? 'text-[#FFFFFF]'
+                      : ' text-black dark:text-yellow-600'
                   }`
                 }
               >
@@ -103,7 +117,9 @@ const Navbar = () => {
                 to='/myFood'
                 className={({ isActive }) =>
                   `font-extrabold  ${
-                    isActive ? 'text-[#FFFFFF]' : ' text-black'
+                    isActive
+                      ? 'text-[#FFFFFF]'
+                      : ' text-black dark:text-yellow-600'
                   }`
                 }
               >
@@ -113,7 +129,9 @@ const Navbar = () => {
                 to='/addFood'
                 className={({ isActive }) =>
                   `font-extrabold  ${
-                    isActive ? 'text-[#FFFFFF]' : ' text-black'
+                    isActive
+                      ? 'text-[#FFFFFF]'
+                      : ' text-black dark:text-yellow-600'
                   }`
                 }
               >
@@ -123,7 +141,7 @@ const Navbar = () => {
           )}
           {user ? (
             <button
-              className='font-extrabold  dark:text-white'
+              className='font-extrabold  dark:text-white '
               onClick={handleLogout}
             >
               LogOut
@@ -182,7 +200,9 @@ const Navbar = () => {
                 to='/'
                 className={({ isActive }) =>
                   `font-extrabold  ${
-                    isActive ? 'text-[#FFFFFF]' : ' text-black'
+                    isActive
+                      ? 'text-[#FFFFFF]'
+                      : ' text-black dark:text-yellow-600'
                   }`
                 }
               >
@@ -194,7 +214,9 @@ const Navbar = () => {
                 to='/gallery'
                 className={({ isActive }) =>
                   `font-extrabold  ${
-                    isActive ? 'text-[#FFFFFF]' : ' text-black'
+                    isActive
+                      ? 'text-[#FFFFFF]'
+                      : ' text-black dark:text-yellow-600'
                   }`
                 }
               >
@@ -206,7 +228,9 @@ const Navbar = () => {
                 to='/location'
                 className={({ isActive }) =>
                   `font-extrabold  ${
-                    isActive ? 'text-[#FFFFFF]' : ' text-black'
+                    isActive
+                      ? 'text-[#FFFFFF]'
+                      : ' text-black dark:text-yellow-600'
                   }`
                 }
               >
@@ -218,7 +242,9 @@ const Navbar = () => {
                 to='/reservation'
                 className={({ isActive }) =>
                   `font-extrabold  ${
-                    isActive ? 'text-[#FFFFFF]' : ' text-black'
+                    isActive
+                      ? 'text-[#FFFFFF]'
+                      : ' text-black dark:text-yellow-600'
                   }`
                 }
               >
@@ -230,7 +256,9 @@ const Navbar = () => {
                 to='/allFoods'
                 className={({ isActive }) =>
                   `font-extrabold  ${
-                    isActive ? 'text-[#FFFFFF]' : ' text-black'
+                    isActive
+                      ? 'text-[#FFFFFF]'
+                      : ' text-black dark:text-yellow-600'
                   }`
                 }
               >
@@ -244,7 +272,9 @@ const Navbar = () => {
                     to='/myOrders'
                     className={({ isActive }) =>
                       `font-extrabold  ${
-                        isActive ? 'text-[#FFFFFF]' : ' text-black'
+                        isActive
+                          ? 'text-[#FFFFFF]'
+                          : ' text-black dark:text-yellow-600 '
                       }`
                     }
                   >
@@ -256,7 +286,9 @@ const Navbar = () => {
                     to='/myFood'
                     className={({ isActive }) =>
                       `font-extrabold  ${
-                        isActive ? 'text-[#FFFFFF]' : ' text-black'
+                        isActive
+                          ? 'text-[#FFFFFF]'
+                          : ' text-black dark:text-yellow-600'
                       }`
                     }
                   >
@@ -268,7 +300,9 @@ const Navbar = () => {
                     to='/addFood'
                     className={({ isActive }) =>
                       `font-extrabold  ${
-                        isActive ? 'text-[#FFFFFF]' : ' text-black'
+                        isActive
+                          ? 'text-[#FFFFFF]'
+                          : ' text-black dark:text-yellow-600'
                       }`
                     }
                   >
