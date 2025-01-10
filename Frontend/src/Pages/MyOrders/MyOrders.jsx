@@ -15,7 +15,7 @@ const MyOrders = () => {
       setMyOrder(data);
     };
     handleData();
-  }, [axiosSecure]);
+  }, [axiosSecure, user]);
 
   const handleDelete = async id => {
     try {
@@ -51,58 +51,68 @@ const MyOrders = () => {
         <title>DineMaster | My Orders</title>
       </Helmet>
       <div className='container mx-auto p-4'>
-        <h1 className='text-2xl font-bold mb-4  dark:text-white'>My Orders</h1>
-        <div className='overflow-x-auto'>
-          <table className='table-auto w-full border-collapse border border-gray-300'>
-            <thead>
-              <tr className='bg-gray-200'>
-                <th className='border border-gray-300 px-4 py-2'>Buyer</th>
-                <th className='border border-gray-300 px-4 py-2'>Food Name</th>
-                <th className='border border-gray-300 px-4 py-2'>Food Image</th>
-                <th className='border border-gray-300 px-4 py-2'>Price</th>
-                <th className='border border-gray-300 px-4 py-2'>Quantity</th>
-                <th className='border border-gray-300 px-4 py-2'>Deadline</th>
-                <th className='border border-gray-300 px-4 py-2'>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {myOrder.map((order, index) => (
-                <tr key={index} className='text-center'>
-                  <td className='border border-gray-300 px-4 dark:text-white '>
-                    {order.buyerName}
-                  </td>
-                  <td className='border border-gray-300 px-4  dark:text-white '>
-                    {order.foodName}
-                  </td>
-                  <td className='border border-gray-300 px-4  dark:text-white '>
-                    <img
-                      src={order.foodImageUrl}
-                      alt={order.foodName}
-                      className='h-12 w-12 object-cover mx-auto rounded-full'
-                    />
-                  </td>
-                  <td className='border border-gray-300 px-4  dark:text-white'>
-                    ${order.price}
-                  </td>
-                  <td className='border border-gray-300 px-4  dark:text-white '>
-                    {order.quantity || 'N/A'}
-                  </td>
-                  <td className='border border-gray-300 px-4 dark:text-white '>
-                    {order.deadline}
-                  </td>
-                  <td className='border border-gray-300 px-4 dark:text-white '>
-                    <button
-                      onClick={() => handleDelete(order._id)}
-                      className='bg-red-500 text-white px-4  rounded hover:bg-red-700'
-                    >
-                      Delete
-                    </button>
-                  </td>
+        <h1 className='text-2xl font-bold mb-4 dark:text-white'>My Orders</h1>
+        {myOrder.length === 0 ? (
+          <div className='text-center text-xl text-red-500'>
+            My orders are not available.
+          </div>
+        ) : (
+          <div className='overflow-x-auto'>
+            <table className='table-auto w-full border-collapse border border-gray-300'>
+              <thead>
+                <tr className='bg-gray-200'>
+                  <th className='border border-gray-300 px-4 py-2'>Buyer</th>
+                  <th className='border border-gray-300 px-4 py-2'>
+                    Food Name
+                  </th>
+                  <th className='border border-gray-300 px-4 py-2'>
+                    Food Image
+                  </th>
+                  <th className='border border-gray-300 px-4 py-2'>Price</th>
+                  <th className='border border-gray-300 px-4 py-2'>Quantity</th>
+                  <th className='border border-gray-300 px-4 py-2'>Deadline</th>
+                  <th className='border border-gray-300 px-4 py-2'>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {myOrder.map((order, index) => (
+                  <tr key={index} className='text-center'>
+                    <td className='border border-gray-300 px-4 dark:text-white '>
+                      {order.buyerName}
+                    </td>
+                    <td className='border border-gray-300 px-4 dark:text-white '>
+                      {order.foodName}
+                    </td>
+                    <td className='border border-gray-300 px-4 dark:text-white '>
+                      <img
+                        src={order.foodImageUrl}
+                        alt={order.foodName}
+                        className='h-12 w-12 object-cover mx-auto rounded-full'
+                      />
+                    </td>
+                    <td className='border border-gray-300 px-4 dark:text-white'>
+                      ${order.price}
+                    </td>
+                    <td className='border border-gray-300 px-4 dark:text-white '>
+                      {order.quantity || 'N/A'}
+                    </td>
+                    <td className='border border-gray-300 px-4 dark:text-white '>
+                      {order.deadline}
+                    </td>
+                    <td className='border border-gray-300 px-4 dark:text-white '>
+                      <button
+                        onClick={() => handleDelete(order._id)}
+                        className='bg-red-500 text-white px-4 rounded hover:bg-red-700'
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </>
   );

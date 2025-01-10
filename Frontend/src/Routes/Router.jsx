@@ -27,19 +27,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/Location',
+        path: '/location',
         element: <Map />,
       },
       {
-        path: '/Login',
+        path: '/login',
         element: <Login />,
       },
       {
-        path: '/Register',
+        path: '/register',
         element: <Register />,
       },
       {
-        path: '/AddFood',
+        path: '/addFood',
         element: (
           <PrivateRoute>
             <AddFood />
@@ -47,23 +47,19 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/Gallery',
+        path: '/gallery',
         element: <Gallery />,
       },
       {
-        path: '/AllFoods',
+        path: '/allFoods',
         element: <AllFoods />,
       },
       {
-        path: '/FoodDetails/:id',
-        element: (
-          <PrivateRoute>
-            <FoodDetails />
-          </PrivateRoute>
-        ),
+        path: '/foodDetails/:id',
+        element: <FoodDetails />,
       },
       {
-        path: '/MyFood',
+        path: '/myFood',
         element: (
           <PrivateRoute>
             <MyFood />
@@ -71,7 +67,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/MyOrders',
+        path: '/myOrders',
         element: (
           <PrivateRoute>
             <MyOrders />
@@ -79,7 +75,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: '/FoodPurchase/:id',
+        path: '/foodPurchase/:id',
         element: (
           <PrivateRoute>
             <FoodPurchase />

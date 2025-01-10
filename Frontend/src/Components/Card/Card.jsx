@@ -1,9 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import useAuth from '../../Hooks/useAuth';
 
 const Card = ({ food }) => {
-  const { user } = useAuth();
   const {
     description,
     foodCategory,
@@ -17,49 +15,33 @@ const Card = ({ food }) => {
   } = food || {};
 
   return (
-    <div className='max-w-xs rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 transform transition-all hover:scale-102 hover:shadow-lg duration-200'>
-      <img
-        referrerPolicy='no-referrer'
-        className='w-full h-44 object-cover rounded-t-lg'
-        src={foodImageUrl}
-        alt={foodName}
-      />
-      <div className='p-4'>
-        <h2 className='text-xl font-bold text-gray-800 dark:text-white mb-2'>
-          {foodName}
-        </h2>
-        <p className='text-sm text-gray-600 dark:text-gray-300 mb-3'>
-          {description.substring(0, 70)}......
-        </p>
-        <div className='flex justify-between items-center text-gray-700 dark:text-gray-300 mb-3'>
-          <span className='text-sm font-bold text-gray-500 dark:text-gray-400'>
-            Category: {foodCategory}
-          </span>
-          <span className='text-sm font-bold text-gray-500 dark:text-gray-400'>
-            Origin: {foodOrigin}
-          </span>
-        </div>
-        <div className='flex justify-between items-center'>
-          <span className='text-lg font-bold text-green-600 dark:text-green-400'>
-            ${price}
-          </span>
-          <span className='text-sm font-bold text-gray-500 dark:text-gray-400'>
-            Qty: {quantity}
-          </span>
-          <span className='text-sm font-bold text-gray-500 dark:text-gray-400'>
-            sell: {sell}
-          </span>
-        </div>
+    <NavLink to={`/FoodDetails/${_id}`} className='block'>
+      <div className='container mx-auto w-80 h-96 bg-[#FFFFFF] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 transform transition-all hover:scale-102 hover:shadow-lg duration-200 rounded-t-lg'>
+        <img
+          referrerPolicy='no-referrer'
+          className='w-full h-64 object-cover rounded-t-lg'
+          src={foodImageUrl}
+          alt={foodName}
+        />
+        <div className='p-4'>
+          <h2 className='text-xl font-extrabold hover:underline text-gray-800 hover:text-text dark:text-white dark:hover:text-text mb-2  '>
+            {foodName}
+          </h2>
 
-        <div className='w-full'>
-          <NavLink to={`/FoodDetails/${_id}`}>
-            <button className='w-full h-8 mt-4 text-sm font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 ease-in-out'>
-              View More..
-            </button>
-          </NavLink>
+          <div className='flex justify-between items-center text-gray-700 dark:text-gray-300 mb-3'>
+            <span className='text-sm font-bold text-gray-500 dark:text-gray-400'>
+              Origin: {foodOrigin}
+            </span>
+          </div>
+          <div className='flex justify-between items-center'>
+            <span className='text-lg font-bold text-[#A0522D] '>${price}</span>
+            <span className='text-sm font-bold text-gray-500 dark:text-gray-400'>
+              Sell: {sell}
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 };
 

@@ -29,7 +29,7 @@ const AddFood = () => {
       <Helmet>
         <title>DineMaster | AddFood</title>
       </Helmet>
-      <div className='container mx-auto p-6 text-black dark:text-white'>
+      <div className='container mx-auto p-6 text-text dark:text-white'>
         <h1 className='text-3xl font-semibold text-center mb-3'>
           Add New Food Item
         </h1>
@@ -41,7 +41,7 @@ const AddFood = () => {
           <div className='col-span-1'>
             <label
               htmlFor='foodName'
-              className='block text-lg font-medium text-blue-600 dark:text-blue-500'
+              className='block text-lg font-medium text-text '
             >
               Food Name
             </label>
@@ -49,7 +49,7 @@ const AddFood = () => {
               type='text'
               id='foodName'
               name='foodName'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-text border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:focus:ring-text'
               placeholder='Enter food name'
               required
             />
@@ -59,7 +59,7 @@ const AddFood = () => {
           <div className='col-span-1'>
             <label
               htmlFor='foodImage'
-              className='block text-lg font-medium text-blue-600 dark:text-blue-500'
+              className='block text-lg font-medium text-text'
             >
               Food Image URL
             </label>
@@ -67,7 +67,7 @@ const AddFood = () => {
               type='url'
               id='foodImageUrl'
               name='foodImageUrl'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-text  border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:focus:ring-text'
               placeholder='Enter food image URL'
               required
             />
@@ -77,7 +77,7 @@ const AddFood = () => {
           <div className='col-span-1'>
             <label
               htmlFor='foodCategory'
-              className='block text-lg font-medium text-blue-600 dark:text-blue-500'
+              className='block text-lg font-medium text-text'
             >
               Food Category
             </label>
@@ -85,7 +85,7 @@ const AddFood = () => {
               type='text'
               id='foodCategory'
               name='foodCategory'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-text border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:focus:ring-text'
               placeholder='Enter food category'
               required
             />
@@ -95,7 +95,7 @@ const AddFood = () => {
           <div className='col-span-1'>
             <label
               htmlFor='quantity'
-              className='block text-lg font-medium text-blue-600 dark:text-blue-500'
+              className='block text-lg font-medium text-text'
             >
               Available Quantity
             </label>
@@ -103,7 +103,8 @@ const AddFood = () => {
               type='number'
               id='quantity'
               name='quantity'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-text
+               border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:focus:ring-text'
               placeholder='Enter quantity'
               required
             />
@@ -113,7 +114,7 @@ const AddFood = () => {
           <div className='col-span-1'>
             <label
               htmlFor='price'
-              className='block text-lg font-medium text-blue-600 dark:text-blue-500'
+              className='block text-lg font-medium text-text '
             >
               Price
             </label>
@@ -121,7 +122,7 @@ const AddFood = () => {
               type='number'
               id='price'
               name='price'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-text border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:focus:ring-text'
               placeholder='Enter price'
               required
             />
@@ -131,7 +132,7 @@ const AddFood = () => {
           <div className='col-span-1'>
             <label
               htmlFor='foodOrigin'
-              className='block text-lg font-medium text-blue-600 dark:text-blue-500'
+              className='block text-lg font-medium text-text'
             >
               Food Origin (Country)
             </label>
@@ -139,7 +140,7 @@ const AddFood = () => {
               type='text'
               id='foodOrigin'
               name='foodOrigin'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-text border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:focus:ring-text'
               placeholder='Enter food origin country'
               required
             />
@@ -149,14 +150,14 @@ const AddFood = () => {
           <div className='col-span-1 sm:col-span-2'>
             <label
               htmlFor='description'
-              className='block text-lg font-medium text-blue-600 dark:text-blue-500'
+              className='block text-lg font-medium text-text'
             >
               Description
             </label>
             <textarea
               id='description'
               name='description'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-text border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:focus:ring-text'
               rows='4'
               placeholder='Enter food description'
               required
@@ -171,7 +172,7 @@ const AddFood = () => {
               defaultValue={user && user?.email}
               readOnly
               name='seller'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-text border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:focus:ring-text'
               required
             />
           </div>
@@ -182,7 +183,7 @@ const AddFood = () => {
               defaultValue={1}
               readOnly
               name='sell'
-              className='w-full p-3 mt-2 dark:bg-gray-800 text-blue-400 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400'
+              className='w-full p-3 mt-2 dark:bg-gray-800 text-text border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-text dark:focus:ring-text'
               required
             />
           </div>
@@ -190,7 +191,7 @@ const AddFood = () => {
           <div className='col-span-1 sm:col-span-2'>
             <button
               type='submit'
-              className='w-full py-3 mt-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-500 transition duration-300'
+              className='w-full py-3 mt-4 bg-text text-white font-semibold rounded-md hover:bg-text transition duration-300'
             >
               Add Item
             </button>

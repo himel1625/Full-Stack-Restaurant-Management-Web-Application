@@ -1,10 +1,6 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import React from 'react';
+import { Carousel as CustomCarousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import food1 from '../../assets/food-img/food1.jpg';
 import food2 from '../../assets/food-img/food2.avif';
 import food3 from '../../assets/food-img/food3.jpg';
@@ -26,41 +22,58 @@ function Slide({ image }) {
 
 const Carousel = () => {
   return (
-    <div className='container px-6 py-10 mx-auto'>
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        loop={true}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className='mySwiper'
+    <div className='relative w-full h-full'>
+      <CustomCarousel
+        autoPlay
+        infiniteLoop
+        showThumbs={false}
+        showStatus={false}
+        dynamicHeight={false}
+        className='w-full h-full'
       >
-        <SwiperSlide>
-          <Slide image={food1} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide image={food2} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide image={food3} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide image={food4} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide image={food6} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Slide image={food7} />
-        </SwiperSlide>
-      </Swiper>
+        <div>
+          <img
+            src={food1}
+            alt='Slide 1'
+            className='w-full h-[600px] object-cover'
+          />
+        </div>
+        <div>
+          <img
+            src={food2}
+            alt='Slide 2'
+            className='w-full h-[600px] object-cover'
+          />
+        </div>
+        <div>
+          <img
+            src={food3}
+            alt='Slide 3'
+            className='w-full h-[600px] object-cover'
+          />
+        </div>
+        <div>
+          <img
+            src={food4}
+            alt='Slide 4'
+            className='w-full h-[600px] object-cover'
+          />
+        </div>
+        <div>
+          <img
+            src={food6}
+            alt='Slide 5'
+            className='w-full h-[600px] object-cover'
+          />
+        </div>
+        <div>
+          <img
+            src={food7}
+            alt='Slide 6'
+            className='w-full h-[600px] object-cover'
+          />
+        </div>
+      </CustomCarousel>
     </div>
   );
 };

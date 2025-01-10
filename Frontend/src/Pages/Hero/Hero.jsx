@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <div className='container mx-auto lg:mx-auto'>
       <div>
-        <p className='text-center font-bold dark:text-blue-400 text-black text-4xl mb-6 '>
+        <p className='pt-20 pb-10 text-center font-bold dark:text-white text-text  text-4xl mb-6 '>
           Our Most Selling Foods
         </p>
       </div>
@@ -35,10 +35,10 @@ const Hero = () => {
           <Card food={food} key={food._id} />
         ))}
       </div>
-      <div className='mt-10'>
+      <div className='mt-16 text-center'>
         <button
           onClick={handleViewAllClick}
-          className='py-2 px-4 rounded-xl text-white text-bold text-xl bg-blue-700 '
+          className='py-2 px-4 rounded-sm text-white text-bold text-xl bg-text'
         >
           view All Food
         </button>

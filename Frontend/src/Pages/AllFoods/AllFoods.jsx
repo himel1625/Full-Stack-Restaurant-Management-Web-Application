@@ -63,7 +63,7 @@ const AllFoods = () => {
             />
             <button
               onClick={handleSearch}
-              className='px-6 py-3 bg-blue-600 text-white font-semibold rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500'
+              className='px-6 py-3 bg-text text-white font-semibold rounded-r-lg hover:bg-text focus:outline-none focus:ring-2 focus:ring-text'
             >
               Search
             </button>
@@ -83,17 +83,17 @@ const AllFoods = () => {
         <div className='flex justify-center items-center mt-8 space-x-4'>
           <button
             onClick={handlePrev}
-            className='px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed'
+            className='px-6 py-2 bg-text text-white rounded-lg   disabled:cursor-not-allowed'
             disabled={cuuPage === 0}
           >
             Prev
           </button>
-          <span className='text-lg font-bold text-blue-500 '>
+          <span className='text-lg font-bold text-text '>
             Page {cuuPage + 1}
           </span>
           <button
             onClick={handleNext}
-            className='px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed'
+            className='px-6 py-2 bg-text text-white rounded-lg   disabled:cursor-not-allowed'
             disabled={foodData.length === 0}
           >
             Next

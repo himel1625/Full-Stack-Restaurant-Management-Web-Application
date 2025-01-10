@@ -8,7 +8,7 @@ const Reservation = () => {
         <title>DineMaster | Reservation</title>
       </Helmet>
       <div className='max-w-lg mx-auto mt-20 p-6 md:p-8 lg:p-10 dark:bg-gray-900 bg-white text-white rounded-lg shadow-md'>
-        <h1 className='text-2xl md:text-3xl font-bold text-center text-blue-500 mb-6'>
+        <h1 className='text-2xl md:text-3xl font-bold text-center text-text mb-6'>
           Reserve Your Table
         </h1>
         <form className='space-y-4'>
@@ -23,7 +23,7 @@ const Reservation = () => {
               type='text'
               id='name'
               name='name'
-              className='p-2 rounded border text-black border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500'
+              className='p-2 rounded border border-gray-700 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-text'
               placeholder='Enter your name'
               required
             />
@@ -40,7 +40,7 @@ const Reservation = () => {
               type='email'
               id='email'
               name='email'
-              className='p-2 rounded border text-black border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500'
+              className='p-2 rounded border border-gray-700 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-text'
               placeholder='Enter your email'
               required
             />
@@ -57,7 +57,7 @@ const Reservation = () => {
               type='date'
               id='date'
               name='date'
-              className='p-2 rounded border text-black border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500'
+              className='p-2 rounded border border-gray-700 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-text '
               required
             />
           </div>
@@ -73,7 +73,7 @@ const Reservation = () => {
               type='time'
               id='time'
               name='time'
-              className='p-2 rounded border text-black border-gray-700 dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500'
+              className='p-2 rounded border border-gray-700 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-text'
               required
             />
           </div>
@@ -89,7 +89,7 @@ const Reservation = () => {
               type='number'
               id='guests'
               name='guests'
-              className='p-2 rounded border border-gray-700 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500'
+              className='p-2 rounded border border-gray-700 dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-text'
               min='1'
               max='20'
               placeholder='Enter number of guests'
@@ -99,7 +99,7 @@ const Reservation = () => {
 
           <button
             type='submit'
-            className='w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105'
+            className='w-full p-2 bg-text text-white rounded  focus:outline-none'
           >
             Reserve Now
           </button>

@@ -40,7 +40,7 @@ const FoodDetails = () => {
 
           {/* Text Section */}
           <div className='text-center md:text-left md:flex-1'>
-            <h2 className='text-4xl font-extrabold text-blue-600 mb-6'>
+            <h2 className='text-4xl font-extrabold text-text mb-6'>
               {foodData.foodName || 'Food Name'}
             </h2>
             <div className='space-y-4'>
@@ -77,7 +77,7 @@ const FoodDetails = () => {
                 {foodData.sell || 'N/A'}
               </p>
               <NavLink to={`/FoodPurchase/${foodData._id}`}>
-                <button className='w-full h-8 mt-4 text-sm font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 ease-in-out'>
+                <button className='w-full h-8 mt-4 text-sm font-semibold text-white bg-text'>
                   Purchase..
                 </button>
               </NavLink>

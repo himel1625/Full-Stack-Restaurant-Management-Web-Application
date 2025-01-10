@@ -2,8 +2,10 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import loginImge from '../../../assets/authImge/Login-amico.png';
 import GoogleLogo from '../../../assets/Google.png';
 import useAuth from '../../../Hooks/useAuth';
+
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -60,7 +62,10 @@ const Login = () => {
       <Helmet>
         <title>DineMaster | Login</title>
       </Helmet>
-      <div className='flex items-center justify-center mt-10'>
+      <div className='flex items-center justify-center mt-10 flex-col-reverse lg:flex-row'>
+        <div className='lg:w-1/2'>
+          <img src={loginImge} alt='' className='max-w-full h-auto' />
+        </div>
         <div className='border border-gray-200 shadow-md dark:bg-black rounded-xl mx-3 w-full sm:w-11/12 md:w-2/3 lg:w-1/3'>
           <div className='mt-6 mb-2'>
             <p className='text-center font-bold text-xl dark:text-white'>
@@ -115,22 +120,22 @@ const Login = () => {
             </div>
 
             <div className='pt-6 px-4'>
-              <button className='btn bg-blue-700 w-full hover:bg-blue-900 text-white'>
+              <button className='btn bg-text w-full hover:bg-text text-white'>
                 Login
               </button>
             </div>
             <div className='hover:scale-105 transition-transform cursor-pointer px-4 mt-6'>
-              <div className='divider font-bold  pt-2 px-4 '>
+              <div className='divider font-bold pt-2 px-4'>
                 Or continue with
               </div>
               <hr />
               <div className='flex items-center justify-center py-4'>
                 <button
                   onClick={handelGoogleLogin}
-                  className='font-bold ml-2 text-sm sm:text-base flex '
+                  className='flex items-center bg-white border border-gray-300 rounded-full px-6 py-2 text-gray-600'
                 >
                   <img
-                    className='w-6 h-6 mx-3'
+                    className='w-6 h-6 mr-2'
                     src={GoogleLogo}
                     alt='Google Logo'
                   />
@@ -143,8 +148,8 @@ const Login = () => {
             <div className='flex items-center justify-center pt-4 pb-6'>
               <p className='text-sm'>Don't have an Account?</p>
               <Link
-                to='/Register'
-                className='text-blue-500 font-semibold underline'
+                to='/register'
+                className='text-text font-semibold underline'
               >
                 Register
               </Link>

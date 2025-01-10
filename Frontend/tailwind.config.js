@@ -9,6 +9,7 @@ export default {
       colors: {
         DGray: '#2d3748',
         DmColor: '#0F172A',
+        text: '#D2691E',
       },
     },
   },

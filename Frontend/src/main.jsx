@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
@@ -7,14 +8,16 @@ import AuthProvider from './Context/AuthProvider';
 import './index.css';
 import router from './Routes/Router';
 
+const queryClient = new QueryClient();
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HelmetProvider>
-      <AuthProvider>
-        <RouterProvider router={router}></RouterProvider>
-        <Toaster position='top-right' reverseOrder={false} />
-      </AuthProvider>
-    </HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <AuthProvider>
+          <RouterProvider router={router}></RouterProvider>
+          <Toaster position='top-right' reverseOrder={false} />
+        </AuthProvider>
+      </HelmetProvider>
+    </QueryClientProvider>
   </StrictMode>,
 );
-

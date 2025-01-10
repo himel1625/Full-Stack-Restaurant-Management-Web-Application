@@ -2,15 +2,12 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className='bg-gray-100 dark:bg-[#000000] text-gray-700 dark:text-gray-300 mt-20'>
-      {/* <hr className='border-gray-700' /> */}
+    <div className='bg-yellow-800 dark:bg-[#000000] text-gray-700 dark:text-gray-300 mt-20'>
       <div className='text-white py-16'>
         <div className='container mx-auto px-6'>
-          {/* Footer Content */}
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12'>
-            {/* DineMaster Section */}
             <div className='footer-section text-black dark:text-white'>
-              <h4 className='text-4xl font-extrabold text-blue-500 mb-6'>
+              <h4 className='text-4xl font-extrabold text-text mb-6'>
                 <strong>DineMaster</strong>
               </h4>
               <p className='text-sm mb-4'>
@@ -74,7 +71,7 @@ const Footer = () => {
                 <strong>Phone:</strong>{' '}
                 <a
                   href='tel:+1234567890'
-                  className='text-gray-400 hover:text-blue-500 transition duration-300'
+                  className='text-gray-400  transition duration-300'
                 >
                   <strong>+1 234 567 890</strong>
                 </a>
@@ -102,9 +99,9 @@ const Footer = () => {
                 <input
                   type='email'
                   placeholder='Your Email'
-                  className='p-3 w-full rounded-lg text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300'
+                  className='p-3 w-full rounded-lg text-gray-900 dark:text-gray-100 '
                 />
-                <button className='bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-all duration-300'>
+                <button className='bg-text text-white py-3 px-6 rounded-sm'>
                   <strong>Subscribe</strong>
                 </button>
               </div>

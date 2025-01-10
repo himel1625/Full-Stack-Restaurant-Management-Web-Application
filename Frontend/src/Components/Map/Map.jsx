@@ -41,13 +41,13 @@ const Map = ({ locations = [] }) => {
       <Helmet>
         <title>DineMaster | Our Location</title>
       </Helmet>
-      <div className='flex flex-col items-center justify-center mt-6 mx-4'>
-        <p className='text-gray-800 dark:text-blue-500 font-bold text-3xl mb-2'>
+      <div className='flex flex-col items-center justify-center mt-6 mx-4 '>
+        <p className='text-text dark:text-white  font-bold text-3xl mb-2'>
           Our Restaurant Location
         </p>
         <div
           id='map'
-          className='h-[750px] w-[100%]   border-4 border-blue-400 shadow-lg rounded-lg '
+          className='h-[750px] w-[100%]   border-4 border-text shadow-lg rounded-lg '
         ></div>
       </div>
     </>
