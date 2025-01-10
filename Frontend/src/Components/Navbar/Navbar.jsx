@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <div className='sticky top-0 z-10   '>
-      <div className='navbar dark:bg-DGray bg-yellow-600 shadow-sm px-8 mx-auto'>
+      <div className='navbar dark:bg-DGray bg-yellow-600 shadow-sm py-6 px-8 mx-auto'>
         <div className='flex-1'>
           <NavLink to='/' className='flex gap-2 items-center'>
             <span className='font-extrabold text-2xl text-white dark:text-text '>
