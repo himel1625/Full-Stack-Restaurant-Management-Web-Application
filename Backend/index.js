@@ -81,7 +81,7 @@ async function run() {
     });
     // get 6 limit food jobs data from DB
     app.get('/limit-food', async (req, res) => {
-      const result = await FoodCollection.find().limit(6).toArray();
+      const result = await FoodCollection.find().limit(8).toArray();
       res.send(result);
     });
     app.get('/one-food', async (req, res) => {
