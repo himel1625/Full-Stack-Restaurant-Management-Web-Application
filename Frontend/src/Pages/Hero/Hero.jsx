@@ -30,7 +30,7 @@ const Hero = () => {
           Our Most Selling Foods
         </p>
       </div>
-      <div className='grid items-center justify-center grid-flow-col-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:mx-auto'>
+      <div className=' rounded justify-items-center bg-slate-100 my-5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 p-2'>
         {foodData.map(food => (
           <Card food={food} key={food._id} />
         ))}

@@ -3,13 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 const Card = ({ food }) => {
   const {
-    description,
-    foodCategory,
     foodImageUrl,
     foodName,
     foodOrigin,
     price,
-    quantity,
     _id,
     sell,
   } = food || {};

@@ -70,7 +70,7 @@ const AllFoods = () => {
           </div>
         </div>
 
-        <div className='grid items-center justify-center grid-flow-col-1 md:grid-cols-2 lg:grid-cols-4 gap-3 min-h-[calc(100vh-232px)] '>
+        <div className=' rounded justify-items-center bg-slate-100 my-5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 p-2'>
           {foodData.length > 0 ? (
             foodData.map(food => <Card food={food} key={food._id} />)
           ) : (

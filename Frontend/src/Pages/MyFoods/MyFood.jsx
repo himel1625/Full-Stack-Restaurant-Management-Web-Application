@@ -83,7 +83,7 @@ const MyFood = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className='text-center'>
                   {myAddFood.map((food, index) => (
                     <tr key={index}>
                       <td className='px-4  border border-gray-300 dark:border-gray-700'>

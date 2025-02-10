@@ -74,7 +74,7 @@ const MyOrders = () => {
                   <th className='border border-gray-300 px-4 py-2'>Actions</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody >
                 {myOrder.map((order, index) => (
                   <tr key={index} className='text-center'>
                     <td className='border border-gray-300 px-4 dark:text-white '>
